@@ -95,11 +95,6 @@ body {
   animation: blob-float-2 15s ease-in-out infinite;
 }
 
-.gradient-hero > * {
-  position: relative;
-  z-index: 1;
-}
-
 .swiper-pagination-bullet,
 .swiper-pagination-bullet-custom {
   width: 10px;

@@ -46,15 +46,15 @@ const config: Config = {
         },
         "blob-float-1": {
           "0%,100%": { transform: "translate(0, 0) scale(1)" },
-          "25%": { transform: "translate(40px, -40px) scale(1.08)" },
-          "50%": { transform: "translate(0, -60px) scale(1)" },
-          "75%": { transform: "translate(-40px, -40px) scale(0.94)" },
+          "25%": { transform: "translate(50vw, -40vh) scale(1.1)" },
+          "50%": { transform: "translate(80vw, 10vh) scale(0.95)" },
+          "75%": { transform: "translate(20vw, 50vh) scale(1.05)" },
         },
         "blob-float-2": {
           "0%,100%": { transform: "translate(0, 0) scale(1)" },
-          "25%": { transform: "translate(-50px, 30px) scale(0.94)" },
-          "50%": { transform: "translate(-30px, 60px) scale(1.08)" },
-          "75%": { transform: "translate(30px, 30px) scale(1)" },
+          "25%": { transform: "translate(-60vw, 30vh) scale(0.95)" },
+          "50%": { transform: "translate(-30vw, 70vh) scale(1.1)" },
+          "75%": { transform: "translate(40vw, -20vh) scale(1)" },
         },
       },
       animation: {
@@ -63,8 +63,8 @@ const config: Config = {
         "float": "float 6s ease-in-out infinite",
         "blob": "blob 14s ease-in-out infinite",
         "gradient-shift": "gradient-shift 8s ease infinite",
-        "blob-float-1": "blob-float-1 12s ease-in-out infinite",
-        "blob-float-2": "blob-float-2 15s ease-in-out infinite",
+        "blob-float-1": "blob-float-1 4s ease-in-out infinite",
+        "blob-float-2": "blob-float-2 5s ease-in-out infinite",
       },
       boxShadow: {
         glow: "0 10px 40px -10px rgba(28,63,9,0.35)",
