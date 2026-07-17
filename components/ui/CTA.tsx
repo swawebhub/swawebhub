@@ -14,7 +14,8 @@ export function CTA({
       <div className="container-x">
         <Reveal>
           <div className="gradient-hero noise relative overflow-hidden rounded-[2.5rem] px-8 py-12 text-center text-white sm:px-16">
-            <div className="pointer-events-none absolute -left-10 -bottom-10 h-64 w-64 animate-blob bg-master/20 blur-3xl" />
+            <div className="pointer-events-none absolute -left-20 top-10 h-72 w-72 animate-blob bg-master/20 blur-3xl" />
+            <div className="pointer-events-none absolute -right-10 bottom-0 h-72 w-72 animate-blob bg-master/10 blur-3xl" />
             <span className="text-5xl">🚀</span>
             <h2 className="mx-auto mt-5 max-w-2xl font-display text-3xl font-extrabold sm:text-4xl lg:text-5xl">
               {title}

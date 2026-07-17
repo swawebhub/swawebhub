@@ -13,7 +13,9 @@ export function PageHeader({
 }) {
   return (
     <section className="gradient-hero noise relative overflow-hidden text-white">
-      <div className="container-x py-12 text-center sm:py-16">
+      <div className="pointer-events-none absolute -left-20 top-10 h-72 w-72 animate-blob bg-master/20 blur-3xl" />
+      <div className="pointer-events-none absolute -right-10 bottom-0 h-72 w-72 animate-blob bg-master/10 blur-3xl" />
+      <div className="container-x relative py-12 text-center sm:py-16">
         {breadcrumb && breadcrumb.length > 0 && (
           <div className="flex justify-center">
             <Breadcrumb items={breadcrumb} />

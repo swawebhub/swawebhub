@@ -70,6 +70,7 @@ export function TestimonialsSwiper() {
             autoplay={{ delay: 5000, disableOnInteraction: false }}
             pagination={{
               clickable: true,
+              el: ".swiper-pagination-custom",
               bulletClass: "swiper-pagination-bullet-custom",
               bulletActiveClass: "swiper-pagination-bullet-custom-active",
             }}
@@ -77,11 +78,11 @@ export function TestimonialsSwiper() {
               640: { slidesPerView: 2 },
               1024: { slidesPerView: 3 },
             }}
-            className="!pb-12"
+            className="!pb-14"
           >
             {testimonials.map((t) => (
-              <SwiperSlide key={t.name}>
-                <figure className="card-hover h-full">
+              <SwiperSlide key={t.name} className="h-full">
+                <figure className="card-hover h-full flex flex-col">
                   <div className="flex items-center gap-4">
                     <div className="grid h-12 w-12 shrink-0 place-items-center rounded-full bg-darkgreen text-sm font-bold text-master">
                       {t.avatar}
@@ -91,7 +92,7 @@ export function TestimonialsSwiper() {
                       <div className="text-xs text-ink/60">{t.role}</div>
                     </div>
                   </div>
-                  <blockquote className="mt-5 text-ink/80 leading-relaxed">
+                  <blockquote className="mt-5 text-ink/80 leading-relaxed flex-1 overflow-y-auto max-h-40 custom-scrollbar">
                     “{t.text}”
                   </blockquote>
                   <div className="mt-6 flex items-center gap-1 text-master">
@@ -105,6 +106,7 @@ export function TestimonialsSwiper() {
               </SwiperSlide>
             ))}
           </Swiper>
+          <div className="swiper-pagination-custom flex items-center justify-center gap-2 mt-6" />
         </Reveal>
       </div>
     </section>
