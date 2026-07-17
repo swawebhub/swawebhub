@@ -18,6 +18,7 @@ export const metadata: Metadata = {
     siteName: "SWAWEBHUB",
     type: "website",
   },
+  robots: { index: true, follow: true },
 };
 
 const testimonials = [

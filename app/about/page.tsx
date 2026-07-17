@@ -10,6 +10,7 @@ export const metadata = {
   description:
     "Meet SWAWEBHUB — a senior, design-led studio helping ambitious brands win on the web with web design, development, and SEO.",
   alternates: { canonical: "https://www.swawebhub.com/about" },
+  robots: { index: true, follow: true },
 };
 
 const values = [

@@ -2,7 +2,12 @@ import { PageHeader } from "@/components/ui/PageHeader";
 import { Reveal } from "@/components/ui/Reveal";
 import { CTA } from "@/components/ui/CTA";
 
-export const metadata = { title: "Privacy Policy — SWAWEBHUB" };
+export const metadata = { 
+  title: "Privacy Policy — SWAWEBHUB",
+  description:
+    "Read SWAWEBHUB Privacy Policy. Learn how we collect, use, and protect your personal data.",
+  robots: { index: true, follow: true },
+};
 
 const sections = [
   { h: "1. Information we collect", p: "We collect information you provide directly (name, email, project details) and basic analytics data such as pages visited and device type." },

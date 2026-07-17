@@ -28,6 +28,7 @@ export function generateMetadata({ params }: { params: { slug: string } }): Meta
       siteName: "SWAWEBHUB",
       type: "website",
     },
+    robots: { index: true, follow: true },
   };
 }
 

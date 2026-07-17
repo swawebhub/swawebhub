@@ -11,7 +11,7 @@ export function Breadcrumb({
         <li>
           <Link
             href="/"
-            className="text-ink/50 transition-colors hover:text-darkgreen"
+            className="text-white/60 transition-colors hover:text-master"
           >
             <span className="sr-only">Home</span>
             <svg
@@ -32,16 +32,16 @@ export function Breadcrumb({
         </li>
         {items.map((item, i) => (
           <li key={i} className="flex items-center gap-x-3">
-            <span className="text-ink/25">/</span>
+            <span className="text-white/25">/</span>
             {item.href ? (
               <Link
                 href={item.href}
-                className="text-ink/50 transition-colors hover:text-darkgreen"
+                className="text-white/60 transition-colors hover:text-master"
               >
                 {item.label}
               </Link>
             ) : (
-              <span className="font-medium text-ink" aria-current="page">
+              <span className="font-medium text-white" aria-current="page">
                 {item.label}
               </span>
             )}

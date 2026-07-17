@@ -2,7 +2,12 @@ import { PageHeader } from "@/components/ui/PageHeader";
 import { Reveal } from "@/components/ui/Reveal";
 import { CTA } from "@/components/ui/CTA";
 
-export const metadata = { title: "Terms & Conditions — SWAWEBHUB" };
+export const metadata = { 
+  title: "Terms & Conditions — SWAWEBHUB",
+  description:
+    "Read SWAWEBHUB Terms & Conditions. Our legal terms for web design, development, and SEO services.",
+  robots: { index: true, follow: true },
+};
 
 const sections = [
   { h: "1. Acceptance of terms", p: "By using SWAWEBHUB's website and services, you agree to these Terms & Conditions. If you do not agree, please discontinue use." },

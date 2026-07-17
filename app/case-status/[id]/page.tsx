@@ -13,7 +13,13 @@ export const dynamic = 'force-static';
 
 export function generateMetadata({ params }: { params: { id: string } }) {
   const item = getCase(params.id);
-  return { title: item ? `${item.project} — Case Status` : "Case Status" };
+  return {
+    title: item ? `${item.project} — Case Status` : "Case Status",
+    description: item
+      ? `Track ${item.project} for ${item.client}. ${item.service} project status, progress, and milestones.`
+      : "Track your SWAWEBHUB project in real time.",
+    robots: { index: true, follow: true },
+  };
 }
 
 const statusStyle: Record<string, string> = {

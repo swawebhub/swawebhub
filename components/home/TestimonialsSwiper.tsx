@@ -1,12 +1,11 @@
 "use client";
 
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Autoplay, Pagination, Navigation } from "swiper/modules";
+import { Autoplay, Pagination } from "swiper/modules";
 import { Reveal } from "@/components/ui/Reveal";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import "swiper/css";
 import "swiper/css/pagination";
-import "swiper/css/navigation";
 
 const testimonials = [
   {
@@ -65,12 +64,15 @@ export function TestimonialsSwiper() {
         />
         <Reveal>
           <Swiper
-            modules={[Autoplay, Pagination, Navigation]}
+            modules={[Autoplay, Pagination]}
             spaceBetween={24}
             slidesPerView={1}
             autoplay={{ delay: 5000, disableOnInteraction: false }}
-            pagination={{ clickable: true }}
-            navigation
+            pagination={{
+              clickable: true,
+              bulletClass: "swiper-pagination-bullet-custom",
+              bulletActiveClass: "swiper-pagination-bullet-custom-active",
+            }}
             breakpoints={{
               640: { slidesPerView: 2 },
               1024: { slidesPerView: 3 },

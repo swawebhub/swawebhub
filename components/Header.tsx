@@ -25,80 +25,81 @@ export function Header() {
   }, [drawer]);
 
   return (
-    <header
-      className={`sticky top-0 z-50 w-full border-b transition-all duration-300 ${
-        scrolled
-          ? "border-master-600/40 bg-master/80 backdrop-blur-lg shadow-card"
-          : "border-transparent bg-master"
-      }`}
-    >
-      <div className="container-x flex h-16 items-center justify-between gap-4 lg:h-20">
-        <Link href="/" className="flex items-center gap-2" onClick={() => setDrawer(false)}>
-          <span className="grid h-9 w-9 place-items-center rounded-xl bg-ink text-master">
-            <span className="text-lg font-black">S</span>
-          </span>
-          <span className="font-display text-xl font-extrabold tracking-tight text-ink">
-            SWA<span className="text-darkgreen">WEBHUB</span>
-          </span>
-        </Link>
+    <>
+      <header
+        className={`sticky top-0 z-50 w-full border-b transition-all duration-300 ${
+          scrolled
+            ? "border-master-600/40 bg-master/80 backdrop-blur-lg shadow-card"
+            : "border-transparent bg-master"
+        }`}
+      >
+        <div className="container-x flex h-16 items-center justify-between gap-4 lg:h-20">
+          <Link href="/" className="flex items-center gap-2" onClick={() => setDrawer(false)}>
+            <span className="grid h-9 w-9 place-items-center rounded-xl bg-ink text-master">
+              <span className="text-lg font-black">S</span>
+            </span>
+            <span className="font-display text-xl font-extrabold tracking-tight text-ink">
+              SWA<span className="text-darkgreen">WEBHUB</span>
+            </span>
+          </Link>
 
-        <nav className="hidden items-center gap-1 lg:flex">
-          {navItems.map((item) => (
-            <div key={item.label} className="group relative">
-              <Link
-                href={item.href}
-                className="flex items-center gap-1 rounded-full px-4 py-2 text-sm font-medium text-ink/80 transition-colors hover:bg-ink/5 hover:text-ink"
-              >
-                {item.label}
-                {item.children && <span className="text-xs">▾</span>}
-              </Link>
-              {item.children && (
-                <div className="invisible absolute left-0 top-full w-56 translate-y-2 rounded-2xl border border-ink/5 bg-white p-2 opacity-0 shadow-glow transition-all duration-300 group-hover:visible group-hover:translate-y-0 group-hover:opacity-100">
-                  {item.children.map((c) => (
-                    <Link
-                      key={c.label}
-                      href={c.href}
-                      className="flex items-center gap-2 rounded-xl px-3 py-2.5 text-sm text-ink/70 transition-colors hover:bg-master-50 hover:text-darkgreen"
-                    >
-                      {c.label}
-                    </Link>
-                  ))}
-                </div>
-              )}
-            </div>
-          ))}
-        </nav>
+          <nav className="hidden items-center gap-1 lg:flex">
+            {navItems.map((item) => (
+              <div key={item.label} className="group relative">
+                <Link
+                  href={item.href}
+                  className="flex items-center gap-1 rounded-full px-4 py-2 text-sm font-medium text-ink/80 transition-colors hover:bg-ink/5 hover:text-ink"
+                >
+                  {item.label}
+                  {item.children && <span className="text-xs">▾</span>}
+                </Link>
+                {item.children && (
+                  <div className="invisible absolute left-0 top-full w-56 translate-y-2 rounded-2xl border border-ink/5 bg-white p-2 opacity-0 shadow-glow transition-all duration-300 group-hover:visible group-hover:translate-y-0 group-hover:opacity-100">
+                    {item.children.map((c) => (
+                      <Link
+                        key={c.label}
+                        href={c.href}
+                        className="flex items-center gap-2 rounded-xl px-3 py-2.5 text-sm text-ink/70 transition-colors hover:bg-master-50 hover:text-darkgreen"
+                      >
+                        {c.label}
+                      </Link>
+                    ))}
+                  </div>
+                )}
+              </div>
+            ))}
+          </nav>
 
-        <div className="hidden items-center lg:flex">
-          <StartProjectButton variant={scrolled ? "black" : "outline"} />
+          <div className="hidden items-center lg:flex">
+            <StartProjectButton variant={scrolled ? "black" : "outline"} />
+          </div>
+
+          <button
+            type="button"
+            aria-label="Open menu"
+            className="grid h-11 w-11 place-items-center rounded-xl bg-ink text-master lg:hidden"
+            onClick={() => setDrawer(true)}
+          >
+            <span className="text-xl">☰</span>
+          </button>
         </div>
+      </header>
 
-        <button
-          type="button"
-          aria-label="Open menu"
-          className="grid h-11 w-11 place-items-center rounded-xl bg-ink text-master lg:hidden"
-          onClick={() => setDrawer(true)}
-        >
-          <span className="text-xl">☰</span>
-        </button>
-      </div>
-
-      {/* Mobile Slide Menu */}
+      {/* Mobile Slide Menu — rendered outside header to avoid backdrop-filter containment */}
       <div
-        className={`fixed inset-0 z-[60] lg:hidden ${drawer ? "" : "pointer-events-none"}`}
+        className={`fixed inset-0 z-[60] overflow-hidden lg:hidden ${drawer ? "" : "pointer-events-none"}`}
         aria-hidden={!drawer}
       >
         <div
-          className={`absolute inset-0 bg-ink/40 transition-opacity duration-300 ${
-            drawer ? "opacity-100" : "opacity-0"
-          }`}
+          className="absolute inset-0 bg-ink/40 transition-opacity duration-300"
+          style={{ opacity: drawer ? 1 : 0 }}
           onClick={() => {
             setDrawer(false);
             setSubOpen(null);
           }}
         />
         <aside
-          className={`absolute right-0 top-0 flex h-full w-[82%] max-w-sm flex-col overflow-hidden bg-white shadow-2xl transition-transform duration-300 ${
+          className={`absolute right-0 top-0 flex h-[100dvh] w-[82%] max-w-sm flex-col overflow-hidden bg-white shadow-2xl transition-transform duration-300 ${
             drawer ? "translate-x-0" : "translate-x-full"
           }`}
         >
@@ -202,6 +203,6 @@ export function Header() {
           </div>
         </aside>
       </div>
-    </header>
+    </>
   );
 }

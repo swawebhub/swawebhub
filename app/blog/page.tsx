@@ -4,7 +4,12 @@ import { Reveal } from "@/components/ui/Reveal";
 import { posts } from "@/lib/data";
 import { CTA } from "@/components/ui/CTA";
 
-export const metadata = { title: "Blog — SWAWEBHUB" };
+export const metadata = { 
+  title: "Blog — Insights on Web Design, Development & SEO | SWAWEBHUB",
+  description:
+    "Practical notes on web design, development, and SEO from the SWAWEBHUB studio. Learn how to build faster, rank higher, and convert more.",
+  robots: { index: true, follow: true },
+};
 
 export const dynamic = 'force-static';
 

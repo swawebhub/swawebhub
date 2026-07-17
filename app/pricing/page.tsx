@@ -17,6 +17,7 @@ export const metadata: Metadata = {
     siteName: "SWAWEBHUB",
     type: "website",
   },
+  robots: { index: true, follow: true },
 };
 
 export const dynamic = 'force-static';

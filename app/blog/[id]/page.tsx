@@ -13,7 +13,11 @@ export const dynamic = 'force-static';
 
 export function generateMetadata({ params }: { params: { id: string } }) {
   const post = getPost(params.id);
-  return { title: post ? `${post.title} — SWAWEBHUB` : "Blog — SWAWEBHUB" };
+  return {
+    title: post ? `${post.title} — SWAWEBHUB` : "Blog — SWAWEBHUB",
+    description: post?.excerpt,
+    robots: { index: true, follow: true },
+  };
 }
 
 export default function BlogDetailsPage({ params }: { params: { id: string } }) {

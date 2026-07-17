@@ -4,7 +4,12 @@ import { Reveal } from "@/components/ui/Reveal";
 import { cases } from "@/lib/data";
 import { CTA } from "@/components/ui/CTA";
 
-export const metadata = { title: "Case Status — SWAWEBHUB" };
+export const metadata = { 
+  title: "Case Status — Track Your Project | SWAWEBHUB",
+  description:
+    "Track your SWAWEBHUB project in real time. View live progress, milestones, and updates for your web design, development, or SEO project.",
+  robots: { index: true, follow: true },
+};
 
 const statusStyle: Record<string, string> = {
   "In Progress": "bg-master-50 text-darkgreen",

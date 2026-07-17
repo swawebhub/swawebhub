@@ -61,4 +61,55 @@ body {
     radial-gradient(rgba(255, 255, 255, 0.06) 1px, transparent 1px),
     linear-gradient(135deg, #1C3F09 0%, #275613 50%, #3A7A18 100%);
   background-size: auto, 22px 22px, auto;
+  position: relative;
+  overflow: hidden;
+}
+
+.gradient-hero::before,
+.gradient-hero::after {
+  content: "";
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(80px);
+  opacity: 0.5;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.gradient-hero::before {
+  width: 400px;
+  height: 400px;
+  background: rgba(255, 212, 0, 0.25);
+  top: -10%;
+  right: -5%;
+  animation: blob-float-1 12s ease-in-out infinite;
+}
+
+.gradient-hero::after {
+  width: 300px;
+  height: 300px;
+  background: rgba(39, 86, 19, 0.4);
+  bottom: -10%;
+  left: -5%;
+  animation: blob-float-2 15s ease-in-out infinite;
+}
+
+.gradient-hero > * {
+  position: relative;
+  z-index: 1;
+}
+
+.swiper-pagination-bullet,
+.swiper-pagination-bullet-custom {
+  width: 10px;
+  height: 10px;
+  background: rgba(10, 10, 10, 0.2);
+  opacity: 1;
+  transition: all 0.3s ease;
+}
+.swiper-pagination-bullet-active,
+.swiper-pagination-bullet-custom-active {
+  background: #1C3F09;
+  width: 28px;
+  border-radius: 9999px;
 }
