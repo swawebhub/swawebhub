@@ -15,7 +15,7 @@ const faqs = [
 export function FAQ() {
   const [open, setOpen] = useState<number | null>(0);
   return (
-    <section className="section bg-master-50/40">
+    <section className="section bg-[#ffd4002e]">
       <div className="container-x grid gap-12 lg:grid-cols-[0.8fr_1.2fr]">
         <SectionHeading
           eyebrow="FAQ"

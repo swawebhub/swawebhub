@@ -104,7 +104,7 @@ export default function AboutPage() {
       </section>
 
       {/* Mission */}
-      <section className="section bg-master-50/40">
+      <section className="section bg-[#ffd4002e]">
         <div className="container-x">
           <SectionHeading
             align="center"
@@ -159,7 +159,7 @@ export default function AboutPage() {
       </section>
 
       {/* How we work with you */}
-      <section className="section bg-master-50/40">
+      <section className="section bg-[#ffd4002e]">
         <div className="container-x">
           <SectionHeading
             eyebrow="How We Work With You"
@@ -252,7 +252,7 @@ export default function AboutPage() {
       </section>
 
       {/* Testimonial */}
-      <section className="section bg-master-50/40">
+      <section className="section bg-[#ffd4002e]">
         <div className="container-x">
           <Reveal>
             <div className="mx-auto max-w-3xl rounded-3xl border border-ink/5 bg-white p-10 text-center shadow-card">

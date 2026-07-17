@@ -89,7 +89,7 @@ export default function ServiceDetailPage({ params }: { params: { slug: string }
       </section>
 
       {/* Process */}
-      <section className="section bg-master-50/40">
+      <section className="section bg-[#ffd4002e]">
         <div className="container-x">
           <SectionHeading
             eyebrow="How it works"
@@ -148,7 +148,7 @@ export default function ServiceDetailPage({ params }: { params: { slug: string }
       </section>
 
       {/* Pricing for this service */}
-      <section className="section bg-master-50/40">
+      <section className="section bg-[#ffd4002e]">
         <div className="container-x">
           <SectionHeading
             align="center"
@@ -224,7 +224,7 @@ export default function ServiceDetailPage({ params }: { params: { slug: string }
       </section>
 
       {/* Other services */}
-      <section className="section bg-master-50/40">
+      <section className="section bg-[#ffd4002e]">
         <div className="container-x">
           <SectionHeading align="center" eyebrow="Explore more" title={<>Other <span className="text-darkgreen">services</span></>} className="mb-14" />
           <div className="grid gap-6 sm:grid-cols-2">

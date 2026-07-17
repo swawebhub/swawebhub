@@ -167,7 +167,7 @@ export function Header() {
             </div>
 
             {/* Submenu section (slides in, no separate header) */}
-            <div className="flex h-full w-1/2 flex-col bg-master-50/40">
+            <div className="flex h-full w-1/2 flex-col bg-[#ffd4002e]">
               <div className="flex items-center gap-2 border-b border-ink/5 bg-darkgreen px-3 py-3">
                 <button
                   type="button"

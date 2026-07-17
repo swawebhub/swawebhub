@@ -5,7 +5,7 @@ import { posts } from "@/lib/data";
 export function LatestPosts() {
   const latest = posts.slice(0, 3);
   return (
-    <section className="section bg-master-50/40">
+    <section className="section bg-[#ffd4002e]">
       <div className="container-x">
         <div className="flex flex-col items-start justify-between gap-4 sm:flex-row sm:items-end">
           <div className="flex max-w-xl flex-col gap-4">

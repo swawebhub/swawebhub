@@ -6,7 +6,7 @@ import { services } from "@/lib/site";
 
 export function WhatWeBuild() {
   return (
-    <section id="what-we-build" className="section bg-master-50/40">
+    <section id="what-we-build" className="section bg-[#ffd4002e]">
       <div className="container-x">
         <SectionHeading
           align="center"

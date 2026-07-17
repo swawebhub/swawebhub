@@ -86,7 +86,7 @@ export default function ServicesPage() {
       </section>
 
       {/* Why SWAWEBHUB */}
-      <section className="section bg-master-50/40">
+      <section className="section bg-[#ffd4002e]">
         <div className="container-x">
           <SectionHeading
             align="center"
@@ -144,7 +144,7 @@ export default function ServicesPage() {
       </section>
 
       {/* Combine services */}
-      <section className="section bg-master-50/40">
+      <section className="section bg-[#ffd4002e]">
         <div className="container-x">
           <SectionHeading
             align="center"

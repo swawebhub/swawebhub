@@ -94,7 +94,7 @@ export default function CaseDetailsPage({ params }: { params: { id: string } }) 
             </Reveal>
           </div>
 
-          <div className="rounded-3xl border border-ink/10 bg-master-50/40 p-6">
+          <div className="rounded-3xl border border-ink/10 bg-[#ffd4002e] p-6">
             <h3 className="font-display text-lg font-bold">Case details</h3>
             <dl className="mt-4 space-y-3 text-sm">
               <div className="flex justify-between border-b border-ink/5 pb-3">

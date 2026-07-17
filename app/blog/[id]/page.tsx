@@ -63,7 +63,7 @@ export default function BlogDetailsPage({ params }: { params: { id: string } }) 
               Frequent, clickable previews mean fewer surprises and faster
               feedback. Clients see progress weekly, not at the finish line.
             </p>
-            <blockquote className="border-l-4 border-master bg-master-50/40 px-5 py-4 font-medium text-ink">
+            <blockquote className="border-l-4 border-master bg-[#ffd4002e] px-5 py-4 font-medium text-ink">
               “Speed is a feature. Accessibility is a requirement. Both are
               non-negotiable at SWAWEBHUB.”
             </blockquote>
