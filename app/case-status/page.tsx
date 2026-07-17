@@ -22,6 +22,7 @@ export default function CaseStatusPage() {
         eyebrow="Case Status"
         title="Track your project in real time"
         subtitle="Enter your case to see live progress, milestones, and updates."
+        breadcrumb={[{ label: "Case Status" }]}
       />
       <section className="section bg-white">
         <div className="container-x grid gap-6 md:grid-cols-2">

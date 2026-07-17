@@ -18,7 +18,7 @@ export const dynamic = 'force-static';
 export default function TermsPage() {
   return (
     <>
-      <PageHeader eyebrow="Legal" title="Terms & Conditions" subtitle="Last updated: July 2026" />
+      <PageHeader eyebrow="Legal" title="Terms & Conditions" subtitle="Last updated: July 2026" breadcrumb={[{ label: "Terms & Conditions" }]} />
       <section className="section bg-white">
         <div className="container-x max-w-3xl space-y-8">
           {sections.map((s, i) => (

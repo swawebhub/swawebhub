@@ -18,7 +18,7 @@ export const dynamic = 'force-static';
 export default function PrivacyPage() {
   return (
     <>
-      <PageHeader eyebrow="Legal" title="Privacy Policy" subtitle="Last updated: July 2026" />
+      <PageHeader eyebrow="Legal" title="Privacy Policy" subtitle="Last updated: July 2026" breadcrumb={[{ label: "Privacy Policy" }]} />
       <section className="section bg-white">
         <div className="container-x max-w-3xl space-y-8">
           {sections.map((s, i) => (

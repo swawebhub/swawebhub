@@ -18,7 +18,7 @@ export function WhyChoose() {
           align="center"
           eyebrow="Why Choose SWAWEBHUB"
           title={<>The studio that <span className="text-master">treats growth seriously</span></>}
-          subtitle="Six reasons teams trust us with their most important digital asset."
+          subtitle={<span className="text-white">Six reasons teams trust us with their most important digital asset.</span>}
           className="mb-14"
         />
         <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">

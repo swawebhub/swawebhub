@@ -15,6 +15,7 @@ export default function BlogPage() {
         eyebrow="Blog"
         title="Insights from the studio"
         subtitle="Practical notes on web design, development, and SEO."
+        breadcrumb={[{ label: "Blog" }]}
       />
       <section className="section bg-white">
         <div className="container-x grid gap-6 md:grid-cols-2 lg:grid-cols-3">

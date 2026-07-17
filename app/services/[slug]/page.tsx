@@ -6,6 +6,7 @@ import { Reveal } from "@/components/ui/Reveal";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { CTA } from "@/components/ui/CTA";
 import { StartProjectButton } from "@/components/ui/StartProjectButton";
+import { PageHeader } from "@/components/ui/PageHeader";
 
 export function generateStaticParams() {
   return services.map((s) => ({ slug: s.slug }));
@@ -38,31 +39,15 @@ export default function ServiceDetailPage({ params }: { params: { slug: string }
 
   return (
     <>
-      {/* Hero */}
-      <section className="gradient-hero noise relative overflow-hidden text-white">
-        <div className="container-x py-16 sm:py-20">
-          <Link href="/services" className="text-sm text-master underline-offset-4 hover:underline">
-            ← All services
-          </Link>
-          <div className="mt-6 flex items-center gap-5">
-            <div className="grid h-16 w-16 place-items-center rounded-2xl bg-white/10 text-3xl">
-              {service.emoji}
-            </div>
-            <div>
-              <span className="text-sm font-medium uppercase tracking-widest text-master">
-                {service.tagline}
-              </span>
-              <h1 className="font-display text-4xl font-extrabold sm:text-5xl">
-                {service.title}
-              </h1>
-            </div>
-          </div>
-          <p className="mt-6 max-w-2xl text-lg text-white/80">{service.hero}</p>
-          <div className="mt-8">
-            <StartProjectButton className="btn-master" />
-          </div>
-        </div>
-      </section>
+      <PageHeader
+        eyebrow={service.tagline}
+        title={service.title}
+        subtitle={service.hero}
+        breadcrumb={[
+          { label: "Services", href: "/services" },
+          { label: service.title },
+        ]}
+      />
 
       {/* Features */}
       <section className="section bg-white">

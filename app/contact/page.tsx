@@ -14,6 +14,7 @@ export default function ContactPage() {
         eyebrow="Contact Us"
         title="Let's talk about your project"
         subtitle="Drop us a message and we'll get back within 24 hours."
+        breadcrumb={[{ label: "Contact" }]}
       />
       <section className="section bg-white">
         <div className="container-x grid gap-12 lg:grid-cols-2">

@@ -28,6 +28,7 @@ export default function PricingPage() {
         eyebrow="Pricing"
         title="Simple, honest pricing"
         subtitle="Fixed-scope packages per service. No surprise invoices."
+        breadcrumb={[{ label: "Pricing" }]}
       />
       <section className="section bg-white">
         <div className="container-x">

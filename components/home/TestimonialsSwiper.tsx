@@ -1,5 +1,12 @@
+"use client";
+
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Autoplay, Pagination, Navigation } from "swiper/modules";
 import { Reveal } from "@/components/ui/Reveal";
 import { SectionHeading } from "@/components/ui/SectionHeading";
+import "swiper/css";
+import "swiper/css/pagination";
+import "swiper/css/navigation";
 
 const testimonials = [
   {
@@ -46,7 +53,7 @@ const testimonials = [
   },
 ];
 
-export function Testimonials() {
+export function TestimonialsSwiper() {
   return (
     <section className="section bg-white">
       <div className="container-x">
@@ -56,33 +63,47 @@ export function Testimonials() {
           title={<>Loved by founders & <span className="text-darkgreen">marketing teams</span></>}
           className="mb-14"
         />
-        <div className="grid gap-6 md:grid-cols-3">
-          {testimonials.map((t, i) => (
-            <Reveal key={t.name} delay={i * 120}>
-              <figure className="card-hover h-full">
-                <div className="flex items-center gap-4">
-                  <div className="grid h-12 w-12 shrink-0 place-items-center rounded-full bg-darkgreen text-sm font-bold text-master">
-                    {t.avatar}
+        <Reveal>
+          <Swiper
+            modules={[Autoplay, Pagination, Navigation]}
+            spaceBetween={24}
+            slidesPerView={1}
+            autoplay={{ delay: 5000, disableOnInteraction: false }}
+            pagination={{ clickable: true }}
+            navigation
+            breakpoints={{
+              640: { slidesPerView: 2 },
+              1024: { slidesPerView: 3 },
+            }}
+            className="!pb-12"
+          >
+            {testimonials.map((t) => (
+              <SwiperSlide key={t.name}>
+                <figure className="card-hover h-full">
+                  <div className="flex items-center gap-4">
+                    <div className="grid h-12 w-12 shrink-0 place-items-center rounded-full bg-darkgreen text-sm font-bold text-master">
+                      {t.avatar}
+                    </div>
+                    <div>
+                      <div className="text-sm font-semibold">{t.name}</div>
+                      <div className="text-xs text-ink/60">{t.role}</div>
+                    </div>
                   </div>
-                  <div>
-                    <div className="text-sm font-semibold">{t.name}</div>
-                    <div className="text-xs text-ink/60">{t.role}</div>
+                  <blockquote className="mt-5 text-ink/80 leading-relaxed">
+                    “{t.text}”
+                  </blockquote>
+                  <div className="mt-6 flex items-center gap-1 text-master">
+                    {[...Array(5)].map((_, i) => (
+                      <svg key={i} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" className="h-4 w-4">
+                        <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                      </svg>
+                    ))}
                   </div>
-                </div>
-                <blockquote className="mt-5 text-ink/80 leading-relaxed">
-                  “{t.text}”
-                </blockquote>
-                <div className="mt-6 flex items-center gap-1 text-master">
-                  {[...Array(5)].map((_, i) => (
-                    <svg key={i} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" className="h-4 w-4">
-                      <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-                    </svg>
-                  ))}
-                </div>
-              </figure>
-            </Reveal>
-          ))}
-        </div>
+                </figure>
+              </SwiperSlide>
+            ))}
+          </Swiper>
+        </Reveal>
       </div>
     </section>
   );

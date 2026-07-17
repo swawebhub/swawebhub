@@ -58,6 +58,7 @@ export default function AboutPage() {
         eyebrow="About Us"
         title="The team behind SWAWEBHUB"
         subtitle="A senior, design-led studio helping ambitious brands win on the web."
+        breadcrumb={[{ label: "About" }]}
       />
 
       {/* Story + stats */}

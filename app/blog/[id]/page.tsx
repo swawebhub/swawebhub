@@ -3,6 +3,7 @@ import { notFound } from "next/navigation";
 import { posts, getPost } from "@/lib/data";
 import { Reveal } from "@/components/ui/Reveal";
 import { CTA } from "@/components/ui/CTA";
+import { PageHeader } from "@/components/ui/PageHeader";
 
 export function generateStaticParams() {
   return posts.map((p) => ({ id: p.id }));
@@ -22,28 +23,19 @@ export default function BlogDetailsPage({ params }: { params: { id: string } }) 
   const related = posts.filter((p) => p.id !== post.id).slice(0, 3);
 
   return (
-    <article className="bg-white">
-      <div className="gradient-hero noise text-white">
-        <div className="container-x py-16 text-center sm:py-20">
-          <Link href="/blog" className="text-sm text-master underline-offset-4 hover:underline">
-            ← Back to blog
-          </Link>
-          <div className="mx-auto mt-4 grid h-24 w-24 place-items-center rounded-3xl bg-white/10 text-5xl">
-            {post.emoji}
-          </div>
-          <div className="mx-auto mt-6 flex items-center justify-center gap-2 text-xs text-white/70">
-            <span className="rounded-full bg-white/10 px-3 py-1 text-master">{post.category}</span>
-            <span>{post.date}</span>
-            <span>•</span>
-            <span>{post.readTime} read</span>
-          </div>
-          <h1 className="mx-auto mt-4 max-w-3xl font-display text-3xl font-extrabold sm:text-4xl">
-            {post.title}
-          </h1>
-        </div>
-      </div>
+    <>
+      <PageHeader
+        eyebrow="Blog"
+        title={post.title}
+        subtitle={post.excerpt}
+        breadcrumb={[
+          { label: "Blog", href: "/blog" },
+          { label: post.title },
+        ]}
+      />
 
-      <div className="container-x max-w-3xl py-16">
+      <div className="bg-white">
+        <div className="container-x max-w-3xl py-16">
         <Reveal>
           <p className="text-lg font-medium text-ink/80">{post.excerpt}</p>
           <div className="mt-8 space-y-5 text-ink/70">
@@ -93,11 +85,12 @@ export default function BlogDetailsPage({ params }: { params: { id: string } }) 
           </div>
         </div>
       </div>
+      </div>
 
       <CTA
         title="Enjoyed this read?"
         subtitle="Let's put these ideas to work on your own website."
       />
-    </article>
+    </>
   );
 }

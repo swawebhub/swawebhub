@@ -4,7 +4,7 @@ import { WhatWeBuild } from "@/components/home/WhatWeBuild";
 import { HowWeWork } from "@/components/home/HowWeWork";
 import { StatsBand } from "@/components/home/StatsBand";
 import { WhyChoose } from "@/components/home/WhyChoose";
-import { Testimonials } from "@/components/home/Testimonials";
+import { TestimonialsSwiper } from "@/components/home/TestimonialsSwiper";
 import { LatestPosts } from "@/components/home/LatestPosts";
 import { FAQ } from "@/components/home/FAQ";
 import { DarkBand } from "@/components/home/DarkBand";
@@ -20,13 +20,11 @@ export default function HomePage() {
       <WhatWeBuild />
       <StatsBand />
       <HowWeWork />
-      
       <WhyChoose />
-      <Testimonials />
+      <TestimonialsSwiper />
       <LatestPosts />
       <DarkBand />
       <FAQ />
-      
       <CTA />
     </>
   );

@@ -9,7 +9,7 @@ export function LatestPosts() {
       <div className="container-x">
         <div className="flex flex-col items-start justify-between gap-4 sm:flex-row sm:items-end">
           <div className="flex max-w-xl flex-col gap-4">
-            <span className="eyebrow">From the Blog</span>
+            <div><span className="eyebrow">From the Blog</span></div>
             <h2 className="font-display text-3xl font-bold leading-tight sm:text-4xl">
               Fresh thinking on <span className="text-darkgreen">web & growth</span>
             </h2>

@@ -3,6 +3,7 @@ import { notFound } from "next/navigation";
 import { cases, getCase } from "@/lib/data";
 import { Reveal } from "@/components/ui/Reveal";
 import { CTA } from "@/components/ui/CTA";
+import { PageHeader } from "@/components/ui/PageHeader";
 
 export function generateStaticParams() {
   return cases.map((c) => ({ id: c.id }));
@@ -36,25 +37,15 @@ export default function CaseDetailsPage({ params }: { params: { id: string } }) 
 
   return (
     <>
-      <div className="gradient-hero noise text-white">
-        <div className="container-x py-14">
-          <Link href="/case-status" className="text-sm text-master underline-offset-4 hover:underline">
-            ← All cases
-          </Link>
-          <div className="mt-5 flex items-start gap-5">
-            <div className="grid h-16 w-16 place-items-center rounded-2xl bg-white/10 text-3xl">
-              {item.emoji}
-            </div>
-            <div>
-              <span className={`rounded-full px-3 py-1 text-xs font-semibold ${statusStyle[item.status]}`}>
-                {item.status}
-              </span>
-              <h1 className="mt-2 font-display text-3xl font-extrabold">{item.project}</h1>
-              <p className="text-sm text-white/70">Client: {item.client} • {item.service}</p>
-            </div>
-          </div>
-        </div>
-      </div>
+      <PageHeader
+        eyebrow="Case Status"
+        title={item.project}
+        subtitle={`Client: ${item.client} • ${item.service}`}
+        breadcrumb={[
+          { label: "Case Status", href: "/case-status" },
+          { label: item.project },
+        ]}
+      />
 
       <section className="section bg-white">
         <div className="container-x grid gap-10 lg:grid-cols-[1.4fr_1fr]">

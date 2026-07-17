@@ -33,6 +33,7 @@ export const navItems: NavItem[] = [
   },
   { label: "Pricing", href: "/pricing" },
   { label: "Contact", href: "/contact" },
+  { label: "Testimonials", href: "/testimonials" },
 ];
 
 export type ServiceProcess = { e: string; t: string; d: string };
@@ -193,6 +194,7 @@ export const footerPages = [
   { label: "Pricing", href: "/pricing" },
   { label: "Blog", href: "/blog" },
   { label: "Case Status", href: "/case-status" },
+  { label: "Testimonials", href: "/testimonials" },
   { label: "Privacy Policy", href: "/privacy" },
   { label: "Terms & Conditions", href: "/terms" },
 ];

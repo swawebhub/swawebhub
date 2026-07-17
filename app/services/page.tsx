@@ -53,6 +53,7 @@ export default function ServicesPage() {
         eyebrow="Our Services"
         title="Three services, one growth engine"
         subtitle="Pick the capability your business needs — or combine them for a complete web presence."
+        breadcrumb={[{ label: "Services", href: "/services" }]}
       />
 
       {/* Service cards */}
