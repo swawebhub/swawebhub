@@ -51,7 +51,11 @@ export function Header() {
                   className="flex items-center gap-1 rounded-full px-4 py-2 text-sm font-medium text-ink/80 transition-colors hover:bg-ink/5 hover:text-ink"
                 >
                   {item.label}
-                  {item.children && <span className="text-xs">▾</span>}
+                  {item.children && (
+                    <svg className="h-3 w-3" fill="currentColor" viewBox="0 0 30.727 30.727">
+                      <path d="M29.994,10.183L15.363,24.812L0.733,10.184c-0.977-0.978-0.977-2.561,0-3.536c0.977-0.977,2.559-0.976,3.536,0 l11.095,11.093L26.461,6.647c0.977-0.976,2.559-0.976,3.535,0C30.971,7.624,30.971,9.206,29.994,10.183z"></path>
+                    </svg>
+                  )}
                 </Link>
                 {item.children && (
                   <div className="invisible absolute left-0 top-full w-56 translate-y-2 rounded-2xl border border-ink/5 bg-white p-2 opacity-0 shadow-glow transition-all duration-300 group-hover:visible group-hover:translate-y-0 group-hover:opacity-100">
@@ -59,7 +63,7 @@ export function Header() {
                       <Link
                         key={c.label}
                         href={c.href}
-                        className="flex items-center gap-2 rounded-xl px-3 py-2.5 text-sm text-ink/70 transition-colors hover:bg-master-50 hover:text-darkgreen"
+                        className="flex items-center gap-2 rounded-xl px-3 py-2.5 text-sm text-ink/70 transition-colors hover:bg-master hover:text-ink"
                       >
                         {c.label}
                       </Link>
@@ -152,10 +156,12 @@ export function Header() {
                         <button
                           type="button"
                           aria-label={`Open ${item.label} submenu`}
-                          className="px-4 py-3.5 text-ink/60"
+                          className="px-4 py-3.5 text-ink"
                           onClick={() => setSubOpen(item.label)}
                         >
-                          ▾
+                          <svg className="h-3 w-3" fill="currentColor" viewBox="0 0 30.727 30.727">
+                            <path d="M29.994,10.183L15.363,24.812L0.733,10.184c-0.977-0.978-0.977-2.561,0-3.536c0.977-0.977,2.559-0.976,3.536,0 l11.095,11.093L26.461,6.647c0.977-0.976,2.559-0.976,3.535,0C30.971,7.624,30.971,9.206,29.994,10.183z"></path>
+                          </svg>
                         </button>
                       )}
                     </div>
@@ -193,7 +199,7 @@ export function Header() {
                         setDrawer(false);
                         setSubOpen(null);
                       }}
-                      className="mb-1 block rounded-xl bg-white px-4 py-3.5 text-base font-medium text-ink shadow-card transition-colors hover:text-darkgreen"
+                      className="mb-1 block rounded-xl bg-white px-4 py-3.5 text-base font-medium text-ink shadow-card transition-colors hover:text-master"
                     >
                       {c.label}
                     </Link>

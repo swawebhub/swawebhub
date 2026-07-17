@@ -13,7 +13,7 @@ export function CTA({
     <section className="section bg-white">
       <div className="container-x">
         <Reveal>
-          <div className="gradient-hero noise relative overflow-hidden rounded-[2.5rem] px-8 py-16 text-center text-white sm:px-16">
+          <div className="gradient-hero noise relative overflow-hidden rounded-[2.5rem] px-8 py-12 text-center text-white sm:px-16">
             <div className="pointer-events-none absolute -left-10 -bottom-10 h-64 w-64 animate-blob bg-master/20 blur-3xl" />
             <span className="text-5xl">🚀</span>
             <h2 className="mx-auto mt-5 max-w-2xl font-display text-3xl font-extrabold sm:text-4xl lg:text-5xl">

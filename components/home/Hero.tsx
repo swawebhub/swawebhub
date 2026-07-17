@@ -9,7 +9,7 @@ export function Hero() {
     <section className="gradient-hero noise relative overflow-hidden text-white">
       <div className="pointer-events-none absolute -left-20 top-10 h-72 w-72 animate-blob bg-master/20 blur-3xl" />
       <div className="pointer-events-none absolute -right-10 bottom-0 h-72 w-72 animate-blob bg-master/10 blur-3xl" />
-      <div className="container-x relative grid items-center gap-12 py-20 lg:grid-cols-2 lg:py-28">
+      <div className="container-x relative grid items-center gap-12 py-16 lg:grid-cols-2 lg:py-24">
         <div className="max-w-2xl">
           <Reveal>
             <span className="inline-flex items-center gap-2 rounded-full bg-white/10 px-4 py-1.5 text-sm font-medium text-master">
