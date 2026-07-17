@@ -4,36 +4,27 @@ export type NavItem = { label: string; href: string; children?: NavChild[] };
 export const SITE_URL = "https://www.swawebhub.com";
 
 export const navItems: NavItem[] = [
-  { label: "Home", href: "/" },
+  { label: "🏠 Home", href: "/" },
   {
-    label: "Services",
+    label: "🎨 Services",
     href: "/services",
     children: [
-      { label: "Web Design", href: "/services/web-design" },
-      { label: "Web Development", href: "/services/web-development" },
-      { label: "SEO Website", href: "/services/seo-website" },
+      { label: "🎨 Web Design", href: "/services/web-design" },
+      { label: "💻 Web Development", href: "/services/web-development" },
+      { label: "🚀 SEO Website", href: "/services/seo-website" },
     ],
   },
-  { label: "About Us", href: "/about" },
+  { label: "👥 About Us", href: "/about" },
   {
-    label: "Blog",
-    href: "/blog",
-    children: [
-      { label: "All Articles", href: "/blog" },
-      { label: "Blog Details", href: "/blog/1" },
-    ],
-  },
-  {
-    label: "Case Status",
+    label: "📁 Case Status",
     href: "/case-status",
     children: [
-      { label: "Track Cases", href: "/case-status" },
-      { label: "Case Details", href: "/case-status/1" },
+      { label: "📋 Track Cases", href: "/case-status" },
+      { label: "📊 Case Details", href: "/case-status/1" },
     ],
   },
-  { label: "Pricing", href: "/pricing" },
-  { label: "Contact", href: "/contact" },
-  { label: "Testimonials", href: "/testimonials" },
+  { label: "💰 Pricing", href: "/pricing" },
+  { label: "📧 Contact", href: "/contact" },
 ];
 
 export type ServiceProcess = { e: string; t: string; d: string };
@@ -188,13 +179,12 @@ export function getService(slug: string) {
 }
 
 export const footerPages = [
-  { label: "About Us", href: "/about" },
-  { label: "Contact Us", href: "/contact" },
-  { label: "Services", href: "/services" },
-  { label: "Pricing", href: "/pricing" },
-  { label: "Blog", href: "/blog" },
-  { label: "Case Status", href: "/case-status" },
-  { label: "Testimonials", href: "/testimonials" },
-  { label: "Privacy Policy", href: "/privacy" },
-  { label: "Terms & Conditions", href: "/terms" },
+  { label: "🏠 Home", href: "/" },
+  { label: "👥 About Us", href: "/about" },
+  { label: "📧 Contact Us", href: "/contact" },
+  { label: "💰 Pricing", href: "/pricing" },
+  { label: "🎨 Services", href: "/services" },
+  { label: "📁 Case Status", href: "/case-status" },
+  { label: "🔒 Privacy Policy", href: "/privacy" },
+  { label: "📄 Terms & Conditions", href: "/terms" },
 ];
