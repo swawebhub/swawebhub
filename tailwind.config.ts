@@ -37,8 +37,10 @@ const config: Config = {
           "50%": { transform: "translateY(-12px)" },
         },
         "blob": {
-          "0%,100%": { borderRadius: "42% 58% 63% 37% / 41% 44% 56% 59%" },
-          "50%": { borderRadius: "58% 42% 38% 62% / 56% 59% 41% 44%" },
+          "0%,100%": { borderRadius: "42% 58% 63% 37% / 41% 44% 56% 59%", transform: "translate(0, 0) scale(1)" },
+          "25%": { borderRadius: "58% 42% 38% 62% / 56% 59% 41% 44%", transform: "translate(25vw, -30vh) scale(1.1)" },
+          "50%": { borderRadius: "42% 58% 63% 37% / 41% 44% 56% 59%", transform: "translate(-20vw, 40vh) scale(0.9)" },
+          "75%": { borderRadius: "58% 42% 38% 62% / 56% 59% 41% 44%", transform: "translate(30vw, 20vh) scale(1.05)" },
         },
         "gradient-shift": {
           "0%,100%": { backgroundPosition: "0% 50%" },
@@ -46,15 +48,15 @@ const config: Config = {
         },
         "blob-float-1": {
           "0%,100%": { transform: "translate(0, 0) scale(1)" },
-          "25%": { transform: "translate(50vw, -40vh) scale(1.1)" },
-          "50%": { transform: "translate(80vw, 10vh) scale(0.95)" },
-          "75%": { transform: "translate(20vw, 50vh) scale(1.05)" },
+          "25%": { transform: "translate(60vw, -40vh) scale(1.15)" },
+          "50%": { transform: "translate(80vw, 30vh) scale(0.9)" },
+          "75%": { transform: "translate(10vw, 60vh) scale(1.1)" },
         },
         "blob-float-2": {
           "0%,100%": { transform: "translate(0, 0) scale(1)" },
-          "25%": { transform: "translate(-60vw, 30vh) scale(0.95)" },
-          "50%": { transform: "translate(-30vw, 70vh) scale(1.1)" },
-          "75%": { transform: "translate(40vw, -20vh) scale(1)" },
+          "25%": { transform: "translate(-50vw, 50vh) scale(0.9)" },
+          "50%": { transform: "translate(-70vw, -20vh) scale(1.15)" },
+          "75%": { transform: "translate(40vw, -50vh) scale(1)" },
         },
       },
       animation: {
