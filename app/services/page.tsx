@@ -1,0 +1,192 @@
+import Link from "next/link";
+import type { Metadata } from "next";
+import { PageHeader } from "@/components/ui/PageHeader";
+import { Reveal } from "@/components/ui/Reveal";
+import { SectionHeading } from "@/components/ui/SectionHeading";
+import { CTA } from "@/components/ui/CTA";
+import { services, SITE_URL } from "@/lib/site";
+
+export const metadata: Metadata = {
+  title: "Services — Web Design, Development & SEO | SWAWEBHUB",
+  description:
+    "Explore SWAWEBHUB services: Web Design, Web Development, and SEO Websites. Modern, conversion-focused solutions built with Next.js and Tailwind.",
+  alternates: {
+    canonical: `${SITE_URL}/services`,
+  },
+  openGraph: {
+    title: "Services — SWAWEBHUB",
+    description:
+      "Web Design, Web Development, and SEO Websites engineered to rank, load fast, and convert.",
+    url: `${SITE_URL}/services`,
+    siteName: "SWAWEBHUB",
+    type: "website",
+  },
+};
+
+const approach = [
+  { e: "🔍", t: "Discover", d: "We learn your goals, audience, and competitors to set the right direction." },
+  { e: "🧭", t: "Plan", d: "A clear scope and roadmap across design, build, and growth." },
+  { e: "🚀", t: "Build & launch", d: "Senior execution with weekly, clickable progress." },
+  { e: "📈", t: "Grow", d: "We measure, optimize, and iterate on real data." },
+];
+
+const combos = [
+  { e: "🎨💻", t: "Design + Development", d: "A pixel-perfect site, built and shipped by one team — no handoff gaps." },
+  { e: "💻🚀", t: "Development + SEO", d: "A fast, technically sound site engineered to rank from day one." },
+  { e: "🎨🚀", t: "Design + SEO", d: "Beautiful pages structured for search and conversions together." },
+  { e: "🎨💻🚀", t: "Full Stack Growth", d: "The complete package: design, build, and ongoing SEO in one plan." },
+];
+
+const stats = [
+  { n: "120+", l: "Sites shipped" },
+  { n: "98%", l: "Client retention" },
+  { n: "5x", l: "Avg. traffic lift" },
+  { n: "8+", l: "Years experience" },
+];
+
+export const dynamic = 'force-static';
+
+export default function ServicesPage() {
+  return (
+    <>
+      <PageHeader
+        eyebrow="Our Services"
+        title="Three services, one growth engine"
+        subtitle="Pick the capability your business needs — or combine them for a complete web presence."
+      />
+
+      {/* Service cards */}
+      <section className="section bg-white">
+        <div className="container-x grid gap-6 lg:grid-cols-3">
+          {services.map((s, i) => (
+            <Reveal key={s.slug} delay={i * 120}>
+              <Link
+                href={`/services/${s.slug}`}
+                className="group flex h-full flex-col overflow-hidden rounded-3xl border border-ink/5 bg-white shadow-card transition-all duration-500 hover:-translate-y-2 hover:border-master/40 hover:shadow-glow"
+              >
+                <div className="grid h-44 place-items-center bg-master-50/60 text-6xl transition-transform duration-500 group-hover:scale-105">
+                  {s.emoji}
+                </div>
+                <div className="flex flex-1 flex-col p-7">
+                  <span className="text-xs font-semibold uppercase tracking-widest text-darkgreen">
+                    {s.tagline}
+                  </span>
+                  <h3 className="mt-2 font-display text-2xl font-bold transition-colors group-hover:text-darkgreen">
+                    {s.title}
+                  </h3>
+                  <p className="mt-3 flex-1 text-sm text-ink/60">{s.desc}</p>
+                  <span className="mt-6 inline-flex items-center gap-1 text-sm font-semibold text-darkgreen">
+                    Explore service →
+                  </span>
+                </div>
+              </Link>
+            </Reveal>
+          ))}
+        </div>
+      </section>
+
+      {/* Why SWAWEBHUB */}
+      <section className="section bg-master-50/40">
+        <div className="container-x">
+          <SectionHeading
+            align="center"
+            eyebrow="Why SWAWEBHUB"
+            title={<>Everything you need to <span className="text-darkgreen">win on the web</span></>}
+            className="mb-14"
+          />
+          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+            {[
+              { e: "⚡", t: "Fast by default", d: "Performance is engineered in, not bolted on." },
+              { e: "🎯", t: "Conversion-first", d: "Design and code aimed at measurable outcomes." },
+              { e: "🔍", t: "SEO-native", d: "Structured data and semantics from day one." },
+              { e: "🤝", t: "Transparent", d: "Clear scopes, shared boards, no surprises." },
+            ].map((v, i) => (
+              <Reveal key={v.t} delay={i * 100}>
+                <div className="card-hover h-full text-center">
+                  <div className="mx-auto grid h-16 w-16 place-items-center rounded-2xl bg-master-50 text-3xl">
+                    {v.e}
+                  </div>
+                  <h3 className="mt-5 font-display text-lg font-bold">{v.t}</h3>
+                  <p className="mt-2 text-sm text-ink/60">{v.d}</p>
+                </div>
+              </Reveal>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Our approach */}
+      <section className="section bg-white">
+        <div className="container-x">
+          <SectionHeading
+            eyebrow="Our Approach"
+            title={<>A simple path from <span className="text-darkgreen">idea to growth</span></>}
+            subtitle="One consistent process across every service we deliver."
+            className="mb-14"
+          />
+          <div className="relative grid gap-8 md:grid-cols-2 lg:grid-cols-4">
+            <div className="absolute left-0 right-0 top-7 hidden h-px bg-gradient-to-r from-transparent via-master to-transparent lg:block" />
+            {approach.map((p, i) => (
+              <Reveal key={p.t} delay={i * 100}>
+                <div className="relative flex flex-col items-start gap-4">
+                  <div className="z-10 grid h-14 w-14 place-items-center rounded-2xl bg-darkgreen text-2xl text-master shadow-glow">
+                    {p.e}
+                  </div>
+                  <div className="font-display text-lg font-bold">
+                    {String(i + 1).padStart(2, "0")}. {p.t}
+                  </div>
+                  <p className="text-sm text-ink/60">{p.d}</p>
+                </div>
+              </Reveal>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Combine services */}
+      <section className="section bg-master-50/40">
+        <div className="container-x">
+          <SectionHeading
+            align="center"
+            eyebrow="Combine & Save"
+            title={<>Powerful when <span className="text-darkgreen">used together</span></>}
+            subtitle="Most clients blend two or more services. Here are the common pairings."
+            className="mb-14"
+          />
+          <div className="grid gap-6 sm:grid-cols-2">
+            {combos.map((c, i) => (
+              <Reveal key={c.t} delay={i * 100}>
+                <div className="card-hover h-full">
+                  <div className="text-3xl">{c.e}</div>
+                  <h3 className="mt-4 font-display text-xl font-bold">{c.t}</h3>
+                  <p className="mt-2 text-sm text-ink/60">{c.d}</p>
+                </div>
+              </Reveal>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Stats */}
+      <section className="section bg-darkgreen text-white">
+        <div className="container-x grid grid-cols-2 gap-8 text-center lg:grid-cols-4">
+          {stats.map((s, i) => (
+            <Reveal key={s.l} delay={i * 100}>
+              <div>
+                <div className="font-display text-4xl font-extrabold text-master sm:text-5xl">
+                  {s.n}
+                </div>
+                <div className="mt-2 text-sm text-white/70">{s.l}</div>
+              </div>
+            </Reveal>
+          ))}
+        </div>
+      </section>
+
+      <CTA
+        title="Let's build your growth engine"
+        subtitle="Start a project and we'll scope the right services for your goals."
+      />
+    </>
+  );
+}
