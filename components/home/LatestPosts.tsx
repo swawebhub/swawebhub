@@ -11,7 +11,7 @@ export function LatestPosts() {
           <div className="flex max-w-xl flex-col gap-4">
             <div><span className="eyebrow">From the Blog</span></div>
             <h2 className="font-display text-3xl font-bold leading-tight sm:text-4xl">
-              Fresh thinking on <span className="text-darkgreen">web & growth</span>
+              Fresh thinking on <span className="text-master">web & growth</span>
             </h2>
           </div>
           <Link href="/blog" className="btn-outline w-fit">

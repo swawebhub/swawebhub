@@ -17,19 +17,22 @@ export function Hero() {
             </span>
           </Reveal>
           <Reveal delay={100}>
-            <h1 className="mt-6 font-display text-4xl font-extrabold leading-[1.05] sm:text-5xl lg:text-6xl">
-              Websites that{" "}
-              <span className="text-master">rank, load & convert</span>
+            <h1 className="mt-6 font-display text-4xl font-extrabold !leading-[1.1] sm:text-4xl lg:text-5xl">
+              Professional <span className="text-master font-light">Web Design, Development & SEO</span> for Business Growth
             </h1>
           </Reveal>
+
           <Reveal delay={200}>
-            <p className="mt-6 max-w-xl text-lg text-white/75">
-              SWAWEBHUB is a design-first studio crafting modern web experiences
-              with Web Design, Development & SEO — built to grow your business.
+            <p className="mt-4 max-w-xl text-lg text-white/75 font-light">
+              SWAWEBHUB builds modern, fast, and SEO-optimized websites with responsive
+              web design, Shopify customization, WordPress development, Next.js
+              applications, custom API integration, and performance optimization to help
+              your business rank higher on Google, attract more customers, and increase
+              conversions.
             </p>
           </Reveal>
           <Reveal delay={300}>
-            <div className="mt-8 flex flex-wrap gap-4">
+            <div className="mt-6 flex flex-wrap gap-4">
               <StartProjectButton className="btn-master" />
               <Link href="/pricing" className="btn border border-white/30 text-white hover:bg-white/10">
                 View Pricing
@@ -58,19 +61,36 @@ export function Hero() {
           <div className="relative animate-float rounded-3xl bg-white/10 p-6 backdrop-blur-md">
             <div className="grid gap-4 sm:grid-cols-2">
               {[
-                { e: "🎨", t: "Web Design" },
-                { e: "💻", t: "Development" },
-                { e: "🚀", t: "SEO" },
-                { e: "📈", t: "Growth" },
-              ].map((c) => (
+  {
+    e: "🎨",
+    t: "UI/UX Web Design",
+    d: "Modern, responsive, and conversion-focused website designs that build trust and turn visitors into loyal customers."
+  },
+  {
+    e: "💻",
+    t: "Full-Stack Development",
+    d: "Shopify customization, WordPress customization, Next.js development, secure API integration, payment gateway setup, and scalable web solutions."
+  },
+  {
+    e: "🚀",
+    t: "SEO Optimization",
+    d: "Technical SEO, Core Web Vitals optimization, keyword research, and on-page SEO to improve Google rankings and organic traffic."
+  },
+  {
+    e: "📈",
+    t: "Business Growth",
+    d: "Data-driven digital strategies to generate quality leads, increase conversions, and grow your online business."
+  }
+].map((c) => (
                 <div
                   key={c.t}
-                  className="group rounded-2xl border border-white/15 bg-white/5 p-5 transition-all hover:-translate-y-1 hover:bg-master hover:text-ink"
+                  className="group rounded-2xl border border-white/15 bg-black/50 p-5 transition-all hover:-translate-y-1 hover:bg-master hover:text-ink"
                 >
                   <div className="text-3xl transition-transform group-hover:scale-110">
                     {c.e}
                   </div>
                   <div className="mt-3 font-semibold">{c.t}</div>
+                  <p className="mt-1 text-xs text-white/60 group-hover:text-ink/80">{c.d}</p>
                 </div>
               ))}
             </div>

@@ -45,6 +45,20 @@ export function SidebarProjectForm() {
     e.preventDefault();
     setSubmitted(true);
     setStep(2);
+
+    const serviceLabel = services.find((s) => s.id === service)?.title || service;
+
+    fetch("/api/project", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        name: form.name,
+        email: form.email,
+        phone: form.phone,
+        service: serviceLabel,
+        message: form.message,
+      }),
+    }).catch((err) => console.error("Project submit error", err));
   }
 
   return (

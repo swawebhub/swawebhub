@@ -59,7 +59,7 @@ export function TestimonialsSwiper() {
         <SectionHeading
           align="center"
           eyebrow="Testimonials"
-          title={<>Loved by founders & <span className="text-darkgreen">marketing teams</span></>}
+          title={<>Loved by founders & <span className="text-master">marketing teams</span></>}
           className="mb-14"
         />
         <Reveal>

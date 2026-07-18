@@ -8,9 +8,9 @@ export function DarkBand() {
         <SectionHeading
           eyebrow="What's Next"
           title={<>Stay ahead with <span className="text-master">fresh insights</span></>}
-          subtitle="Tips, trends, and tactics to keep your website performing at its best."
+          subtitle={<div className="text-white">Tips, trends, and tactics to keep your website performing at its best.</div>}
           align="center"
-          className="mx-auto"
+          className="md:max-w-[80%] w-full mx-auto"
         />
         <Reveal delay={200}>
           <div className="mx-auto mt-10 flex max-w-md flex-col items-center gap-4 text-center sm:flex-row sm:justify-center">

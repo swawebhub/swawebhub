@@ -4,6 +4,42 @@ import { useState } from "react";
 
 export function ContactForm() {
   const [sent, setSent] = useState(false);
+  const [error, setError] = useState<string | null>(null);
+  const [loading, setLoading] = useState(false);
+
+  async function onSubmit(e: React.FormEvent<HTMLFormElement>) {
+    e.preventDefault();
+    setError(null);
+    setLoading(true);
+
+    const form = e.currentTarget;
+    const data = new FormData(form);
+    const payload = {
+      name: data.get("name")?.toString() || "",
+      email: data.get("email")?.toString() || "",
+      subject: data.get("subject")?.toString() || "",
+      message: data.get("message")?.toString() || "",
+    };
+
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(payload),
+      });
+
+      const json = await res.json();
+      if (!res.ok || !json.ok) {
+        throw new Error(json.error || "Failed to send");
+      }
+      setSent(true);
+    } catch (err) {
+      setError(err instanceof Error ? err.message : "Something went wrong");
+    } finally {
+      setLoading(false);
+    }
+  }
+
   return (
     <div className="rounded-3xl border border-ink/10 bg-white p-8 shadow-card">
       {sent ? (
@@ -15,17 +51,12 @@ export function ContactForm() {
           <p className="mt-2 text-sm text-ink/60">We'll reply shortly.</p>
         </div>
       ) : (
-        <form
-          onSubmit={(e) => {
-            e.preventDefault();
-            setSent(true);
-          }}
-          className="space-y-4"
-        >
+        <form onSubmit={onSubmit} className="space-y-4">
           <div className="grid gap-4 sm:grid-cols-2">
             <div>
               <label className="mb-1 block text-sm font-medium">Name</label>
               <input
+                name="name"
                 required
                 className="w-full rounded-xl border border-ink/15 px-4 py-3 text-sm outline-none focus:border-master"
               />
@@ -33,6 +64,7 @@ export function ContactForm() {
             <div>
               <label className="mb-1 block text-sm font-medium">Email</label>
               <input
+                name="email"
                 required
                 type="email"
                 className="w-full rounded-xl border border-ink/15 px-4 py-3 text-sm outline-none focus:border-master"
@@ -41,18 +73,23 @@ export function ContactForm() {
           </div>
           <div>
             <label className="mb-1 block text-sm font-medium">Subject</label>
-            <input className="w-full rounded-xl border border-ink/15 px-4 py-3 text-sm outline-none focus:border-master" />
+            <input
+              name="subject"
+              className="w-full rounded-xl border border-ink/15 px-4 py-3 text-sm outline-none focus:border-master"
+            />
           </div>
           <div>
             <label className="mb-1 block text-sm font-medium">Message</label>
             <textarea
+              name="message"
               required
               rows={5}
               className="w-full rounded-xl border border-ink/15 px-4 py-3 text-sm outline-none focus:border-master"
             />
           </div>
-          <button type="submit" className="btn-master w-full">
-            Send Message →
+          {error && <p className="text-sm text-red-600">{error}</p>}
+          <button type="submit" className="btn-master w-full" disabled={loading}>
+            {loading ? "Sending..." : "Send Message →"}
           </button>
         </form>
       )}

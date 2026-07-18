@@ -2,8 +2,8 @@ import Link from "next/link";
 import { footerPages, services } from "@/lib/site";
 
 export function Footer() {
-  const quickLinks = footerPages.slice(0, 4);
-  const helpfulLinks = footerPages.slice(4);
+  const quickLinks = footerPages.slice(0, 5);
+  const helpfulLinks = footerPages.slice(5);
 
   return (
     <footer className="relative bg-ink text-white overflow-hidden">
@@ -33,10 +33,9 @@ export function Footer() {
               </span>
             </Link>
             <p className="mt-5 text-sm leading-relaxed text-white/60">
-              We design, develop, and optimize modern websites that rank, load
-              instantly, and convert.
+              Premium digital solutions combining Web Design, Shopify, WordPress, Next.js, and SEO to build faster, smarter, and more successful businesses.
             </p>
-            <div className="mt-6 flex gap-3">
+            {/* <div className="mt-6 flex gap-3">
               {["🌐", "🐦", "📸", "💼"].map((icon) => (
                 <a
                   key={icon}
@@ -46,7 +45,7 @@ export function Footer() {
                   {icon}
                 </a>
               ))}
-            </div>
+            </div> */}
           </div>
 
           {/* B) Quick Links */}
@@ -127,12 +126,12 @@ export function Footer() {
             <ul className="mt-5 space-y-4">
               <li>
                 <a
-                  href="mailto:hello@swawebhub.com"
+                  href="mailto:swa.pro.work1991@gmail.com"
                   className="group flex items-start gap-3 text-sm text-white/70 transition-colors hover:text-master"
                 >
                   <span className="mt-0.5 text-lg">📧</span>
                   <span className="leading-snug">
-                    hello@swawebhub.com
+                    swa.pro.work1991@gmail.com
                     <span className="block text-xs text-white/40 group-hover:text-master/70">
                       Email us anytime
                     </span>
@@ -141,12 +140,12 @@ export function Footer() {
               </li>
               <li>
                 <a
-                  href="tel:+15550000000"
+                  href="tel:+919804382734"
                   className="group flex items-start gap-3 text-sm text-white/70 transition-colors hover:text-master"
                 >
                   <span className="mt-0.5 text-lg">📞</span>
                   <span className="leading-snug">
-                    +1 (555) 000 0000
+                    +91 98043 82734
                     <span className="block text-xs text-white/40 group-hover:text-master/70">
                       Mon–Fri, 9am–6pm
                     </span>
@@ -169,12 +168,8 @@ export function Footer() {
 
       {/* Bottom bar */}
       <div className="relative border-t border-white/10">
-        <div className="container-x flex flex-col items-center justify-between gap-4 py-6 text-xs text-white/50 sm:flex-row">
+        <div className="container-x flex flex-col items-center justify-center gap-4 py-6 text-xs text-white/50 sm:flex-row">
           <p>© {new Date().getFullYear()} SWAWEBHUB. All rights reserved.</p>
-          <p className="flex items-center gap-1.5">
-            Built with <span className="text-master">❤</span> using Next.js &
-            Tailwind CSS
-          </p>
         </div>
       </div>
     </footer>

@@ -36,12 +36,12 @@ export default function ContactPage() {
             <h2 className="font-display text-2xl font-bold">Get in touch</h2>
             <div className="space-y-4">
               {[
-                { e: "📧", t: "Email", d: "hello@swawebhub.com" },
-                { e: "📞", t: "Phone", d: "+1 (555) 000 0000" },
+                { e: "📧", t: "Email", d: "swa.pro.work1991@gmail.com" },
+                { e: "📞", t: "Phone", d: "+91 98043 82734" },
                 { e: "📍", t: "Studio", d: "Remote-first, worldwide" },
                 { e: "⏰", t: "Hours", d: "Mon–Fri, 9am–6pm" },
               ].map((c) => (
-                <div key={c.t} className="flex items-center gap-4 rounded-2xl bg-master-50/50 p-4">
+                <div key={c.t} className="flex items-center gap-4 rounded-2xl bg-master p-4">
                   <span className="grid h-12 w-12 place-items-center rounded-xl bg-master-50 text-2xl">
                     {c.e}
                   </span>

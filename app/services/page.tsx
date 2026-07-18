@@ -4,6 +4,7 @@ import { PageHeader } from "@/components/ui/PageHeader";
 import { Reveal } from "@/components/ui/Reveal";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { CTA } from "@/components/ui/CTA";
+import { EmojiIcon } from "@/components/ui/EmojiIcon";
 import { services, SITE_URL } from "@/lib/site";
 
 export const metadata: Metadata = {
@@ -59,28 +60,45 @@ export default function ServicesPage() {
 
       {/* Service cards */}
       <section className="section bg-white">
-        <div className="container-x grid gap-6 lg:grid-cols-3">
+        <div className="container-x grid gap-6 md:grid-cols-3">
           {services.map((s, i) => (
             <Reveal key={s.slug} delay={i * 120}>
               <Link
                 href={`/services/${s.slug}`}
-                className="group flex h-full flex-col overflow-hidden rounded-3xl border border-ink/5 bg-white shadow-card transition-all duration-500 hover:-translate-y-2 hover:border-master/40 hover:shadow-glow"
+                className="card-hover group flex h-full flex-col"
               >
-                <div className="grid h-44 place-items-center bg-master-50/60 text-6xl transition-transform duration-500 group-hover:scale-105">
-                  {s.emoji}
-                </div>
-                <div className="flex flex-1 flex-col p-7">
-                  <span className="text-xs font-semibold uppercase tracking-widest text-darkgreen">
-                    {s.tagline}
-                  </span>
-                  <h3 className="mt-2 font-display text-2xl font-bold transition-colors group-hover:text-darkgreen">
-                    {s.title}
-                  </h3>
-                  <p className="mt-3 flex-1 text-sm text-ink/60">{s.desc}</p>
-                  <span className="mt-6 inline-flex items-center gap-1 text-sm font-semibold text-darkgreen">
-                    Explore service →
-                  </span>
-                </div>
+                <EmojiIcon emoji={s.emoji} />
+                <span className="mt-5 text-xs font-semibold uppercase tracking-widest text-darkgreen">
+                  {s.tagline}
+                </span>
+                <h3 className="mt-1 font-display text-xl font-bold">{s.title}</h3>
+                <p className="mt-3 text-sm text-ink/60">{s.desc}</p>
+                <ul className="mt-5 grid gap-2 text-sm text-ink/70">
+                  {s.work.map((w) => (
+                    <li key={w.t} className="flex items-start gap-2">
+                      <span className="mt-0.5 text-darkgreen">{w.e}</span>
+                      <span>
+                        <span className="font-semibold text-ink">{w.t}</span> — {w.d}
+                      </span>
+                    </li>
+                  ))}
+                </ul>
+                {s.tools && (
+                  <div className="mt-5 flex flex-wrap gap-1.5">
+                    {s.tools.map((t) => (
+                      <span
+                        key={t}
+                        className="rounded-full bg-white px-2.5 py-1 text-xs font-medium text-ink/60 ring-1 ring-ink/10"
+                      >
+                        {t}
+                      </span>
+                    ))}
+                  </div>
+                )}
+                <span className="mt-6 inline-flex items-center gap-1 text-sm font-semibold text-darkgreen opacity-0 transition-opacity duration-300 group-hover:opacity-100">
+                  Learn more →
+                </span>
+                <span className="pointer-events-none absolute -right-10 -top-10 h-32 w-32 rounded-full bg-master-50 opacity-0 blur-2xl transition-opacity duration-500 group-hover:opacity-100" />
               </Link>
             </Reveal>
           ))}

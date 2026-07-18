@@ -2,12 +2,36 @@ import { Reveal } from "@/components/ui/Reveal";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 
 const reasons = [
-  { e: "⚡", t: "Blazing fast", d: "Core Web Vitals baked in — speed is a feature, not an afterthought." },
-  { e: "🎯", t: "Conversion-first", d: "Every pixel earns its place with measurable business outcomes." },
-  { e: "🔒", t: "Rock-solid code", d: "Typed, tested, and maintainable. No spaghetti, ever." },
-  { e: "📞", t: "Real humans", d: "Direct access to the senior team building your site." },
-  { e: "📈", t: "SEO-native", d: "Structured data, semantic HTML, and performance from day one." },
-  { e: "🤝", t: "Honest pricing", d: "Clear scopes and no surprise invoices." },
+  {
+    e: "⚡",
+    t: "Fast & High-Performance Websites",
+    d: "We build lightning-fast websites optimized for Core Web Vitals, page speed, and exceptional user experiences that improve rankings and conversions."
+  },
+  {
+    e: "🎨",
+    t: "Custom Web Design & Development",
+    d: "From responsive UI/UX design to Shopify customization, WordPress development, and Next.js applications, every project is tailored to your business."
+  },
+  {
+    e: "🚀",
+    t: "SEO-Driven Development",
+    d: "Every website is built with technical SEO, semantic HTML, schema markup, and mobile optimization to improve Google visibility and organic traffic."
+  },
+  {
+    e: "🔗",
+    t: "Advanced API Integration",
+    d: "Seamlessly connect payment gateways, CRMs, ERP systems, third-party APIs, and automation tools to streamline your business operations."
+  },
+  {
+    e: "🛡️",
+    t: "Secure & Scalable Solutions",
+    d: "Our websites use clean architecture, secure coding standards, and scalable technologies to support your business as it grows."
+  },
+  {
+    e: "🤝",
+    t: "Dedicated Support & Transparent Process",
+    d: "We provide clear communication, reliable support, timely delivery, and long-term partnerships focused on your business success."
+  },
 ];
 
 export function WhyChoose() {
@@ -17,9 +41,13 @@ export function WhyChoose() {
         <SectionHeading
           align="center"
           eyebrow="Why Choose SWAWEBHUB"
-          title={<>The studio that <span className="text-master">treats growth seriously</span></>}
-          subtitle={<span className="text-white">Six reasons teams trust us with their most important digital asset.</span>}
-          className="mb-14"
+          title={<>Why Businesses Choose SWAWEBHUB for <span className="text-master">Web Design, Development & SEO</span></>}
+          subtitle={
+            <span className="text-white">
+              We combine creative web design, modern development, Shopify and WordPress expertise, Next.js applications, API integration, and technical SEO to build fast, secure, and conversion-focused websites that help businesses grow.
+            </span>
+          }
+          className="mb-14 md:max-w-[85%] w-full mx-auto"
         />
         <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
           {reasons.map((r, i) => (

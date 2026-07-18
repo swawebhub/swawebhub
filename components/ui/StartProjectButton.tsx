@@ -12,13 +12,13 @@ export function StartProjectButton({
   variant?: "master" | "black" | "outline";
 }) {
   const { openForm } = useSidebarForm();
-  const cls =
-    className ??
-    (variant === "black"
+  const baseCls =
+    variant === "black"
       ? "btn bg-ink text-master hover:-translate-y-0.5"
       : variant === "outline"
       ? "btn border-2 border-ink bg-transparent text-ink hover:bg-ink hover:text-master"
-      : "btn-master");
+      : "btn-master";
+  const cls = className ? `${baseCls} ${className}` : baseCls;
   return (
     <button type="button" onClick={openForm} className={cls}>
       {label}

@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { useState, useEffect } from "react";
-import { navItems } from "@/lib/site";
+import { navItems, contactEmail, contactPhone } from "@/lib/site";
 import { StartProjectButton } from "@/components/ui/StartProjectButton";
 
 export function Header() {
@@ -26,6 +26,33 @@ export function Header() {
 
   return (
     <>
+      {/* Top bar - not sticky */}
+      <div className="w-full bg-ink text-master">
+        <div className="flex h-11 items-center justify-between px-4 sm:px-6 lg:px-8 xl:max-w-[1440px] xl:mx-auto">
+          <a
+            href={`mailto:${contactEmail}`}
+            className="flex items-center gap-2 text-xs sm:text-sm font-medium hover:underline"
+          >
+            <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+              <path strokeLinecap="round" strokeLinejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+            </svg>
+            <span className="hidden sm:inline">{contactEmail}</span>
+            <span className="sm:hidden">Email</span>
+          </a>
+
+          <a
+            href={`tel:${contactPhone}`}
+            className="flex items-center gap-2 text-xs sm:text-sm font-medium hover:underline"
+          >
+            <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+              <path strokeLinecap="round" strokeLinejoin="round" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+            </svg>
+            <span className="hidden sm:inline">{contactPhone}</span>
+            <span className="sm:hidden">Call</span>
+          </a>
+        </div>
+      </div>
+
       <header
         className={`sticky top-0 z-50 w-full border-b transition-all duration-300 ${
           scrolled
@@ -33,7 +60,7 @@ export function Header() {
             : "border-transparent bg-master"
         }`}
       >
-        <div className="container-x flex h-16 items-center justify-between gap-4 lg:h-20">
+        <div className="flex h-16 w-full items-center justify-between gap-4 px-4 sm:px-6 lg:px-8 lg:h-20 xl:max-w-[1440px] xl:mx-auto">
           <Link href="/" className="flex items-center gap-2" onClick={() => setDrawer(false)}>
             <span className="grid h-9 w-9 place-items-center rounded-xl bg-ink text-master">
               <span className="text-lg font-black">S</span>
@@ -74,18 +101,22 @@ export function Header() {
             ))}
           </nav>
 
-          <div className="hidden items-center lg:flex">
-            <StartProjectButton variant={scrolled ? "black" : "outline"} />
-          </div>
+           {/* Right side */}
+           <div className="flex items-center gap-2">
+             
+              <div className="flex">
+                <StartProjectButton variant={scrolled ? "black" : "outline"} className="text-nowrap text-xs sm:text-sm px-3 sm:px-5 py-1.5 sm:py-2.5" />
+              </div>
 
-          <button
-            type="button"
-            aria-label="Open menu"
-            className="grid h-11 w-11 place-items-center rounded-xl bg-ink text-master lg:hidden"
-            onClick={() => setDrawer(true)}
-          >
-            <span className="text-xl">☰</span>
-          </button>
+           <button
+             type="button"
+             aria-label="Open menu"
+             className="grid h-11 w-11 place-items-center rounded-xl bg-ink text-master lg:hidden"
+             onClick={() => setDrawer(true)}
+           >
+             <span className="text-xl">☰</span>
+           </button>
+         </div>
         </div>
       </header>
 

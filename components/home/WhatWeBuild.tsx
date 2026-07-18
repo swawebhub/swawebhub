@@ -10,10 +10,14 @@ export function WhatWeBuild() {
       <div className="container-x">
         <SectionHeading
           align="center"
-          eyebrow="What We Build"
-          title={<>Three core services, <span className="text-darkgreen">one outcome</span></>}
-          subtitle="Pick the engine your business needs — or combine them for a complete growth stack."
-          className="mb-14"
+          eyebrow="Our Services"
+          title={
+            <>
+              Professional <span className="text-master">Web Design, Development & SEO Services</span>
+            </>
+          }
+          subtitle="From responsive web design and Shopify & WordPress customization to Next.js development, API integration, and technical SEO, we build high-performance websites that help businesses grow."
+          className="mb-14 md:max-w-[80%] w-full mx-auto"
         />
         <div className="grid gap-6 md:grid-cols-3">
           {services.map((s, i) => (
