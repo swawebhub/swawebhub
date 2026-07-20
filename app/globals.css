@@ -2,6 +2,26 @@
 @tailwind components;
 @tailwind utilities;
 
+@keyframes toastIn {
+  from {
+    opacity: 0;
+    transform: translateX(100%);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes toastProgress {
+  from {
+    width: 100%;
+  }
+  to {
+    width: 0%;
+  }
+}
+
 :root {
   --font-sans: "Inter", system-ui, sans-serif;
   --font-display: "Sora", system-ui, sans-serif;
@@ -50,6 +70,10 @@ body {
 
   .btn-master {
     @apply btn bg-master text-ink hover:bg-master-400 hover:-translate-y-0.5 hover:shadow-glow;
+  }
+
+  .btn-primary {
+    @apply btn bg-darkgreen text-white hover:bg-darkgreen/90 hover:-translate-y-0.5 hover:shadow-glow;
   }
 
   .btn-dark {

@@ -5,7 +5,6 @@ const nextConfig = {
   poweredByHeader: false,
   generateEtags: false,
   output: 'standalone',
-  trailingSlash: true,
   images: {
     remotePatterns: [],
   },

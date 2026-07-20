@@ -1,5 +1,5 @@
 import type { MetadataRoute } from "next";
-import { posts, cases } from "@/lib/data";
+import { cases } from "@/lib/data";
 import { services } from "@/lib/site";
 
 const BASE = "https://www.swawebhub.com";
@@ -31,16 +31,18 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.8,
   }));
 
-  const blogRoutes = posts.map((p) => ({
-    url: `${BASE}/blog/${p.id}`,
-    lastModified: new Date(p.date),
-    changeFrequency: "monthly" as const,
-    priority: 0.6,
-  }));
+  const blogRoutes = [
+    {
+      url: `${BASE}/blog`,
+      lastModified: new Date(),
+      changeFrequency: "weekly" as const,
+      priority: 0.8,
+    },
+  ];
 
   const caseRoutes = cases.map((c) => ({
     url: `${BASE}/case-status/${c.id}`,
-    lastModified: new Date(c.updated),
+    lastModified: new Date(),
     changeFrequency: "weekly" as const,
     priority: 0.5,
   }));

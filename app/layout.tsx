@@ -1,10 +1,9 @@
 import type { Metadata } from "next";
 import { Inter, Sora } from "next/font/google";
-import "./globals.css";
-import { Header } from "@/components/Header";
-import { Footer } from "@/components/Footer";
+import { PublicLayout } from "@/components/PublicLayout";
 import { SidebarFormProvider } from "@/components/sidebar/SidebarFormProvider";
 import { SidebarProjectForm } from "@/components/sidebar/SidebarProjectForm";
+import "./globals.css";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -58,11 +57,11 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className={`${inter.variable} ${sora.variable}`}>
-      <body>
+      <body suppressHydrationWarning>
         <SidebarFormProvider>
-          <Header />
-          <main>{children}</main>
-          <Footer />
+          <PublicLayout>
+            {children}
+          </PublicLayout>
           <SidebarProjectForm />
         </SidebarFormProvider>
       </body>
