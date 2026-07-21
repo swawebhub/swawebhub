@@ -4,7 +4,6 @@ const nextConfig = {
   compress: true,
   poweredByHeader: false,
   generateEtags: false,
-  output: 'standalone',
   images: {
     remotePatterns: [],
   },

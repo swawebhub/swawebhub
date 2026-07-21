@@ -1,10 +1,11 @@
 import type { MetadataRoute } from "next";
 import { cases } from "@/lib/data";
 import { services } from "@/lib/site";
+import { fetchPosts } from "@/lib/wordpress";
 
 const BASE = "https://www.swawebhub.com";
 
-export default function sitemap(): MetadataRoute.Sitemap {
+export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const staticRoutes = [
     "",
     "/about",
@@ -31,7 +32,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.8,
   }));
 
-  const blogRoutes = [
+  let blogRoutes = [
     {
       url: `${BASE}/blog`,
       lastModified: new Date(),
@@ -39,6 +40,21 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.8,
     },
   ];
+
+  try {
+    const posts = await fetchPosts({ perPage: 100 });
+    blogRoutes = [
+      ...blogRoutes,
+      ...posts.map((p) => ({
+        url: `${BASE}/blog/${p.slug}`,
+        lastModified: new Date(p.modified || p.date),
+        changeFrequency: "weekly" as const,
+        priority: 0.8,
+      })),
+    ];
+  } catch {
+    // keep static blog route if crawl fails
+  }
 
   const caseRoutes = cases.map((c) => ({
     url: `${BASE}/case-status/${c.id}`,
