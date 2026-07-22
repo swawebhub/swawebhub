@@ -4,6 +4,7 @@ import { Reveal } from "@/components/ui/Reveal";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { StartProjectButton } from "@/components/ui/StartProjectButton";
 import { CTA } from "@/components/ui/CTA";
+import { autoFocusKeyphrase } from "@/lib/wordpress";
 
 export const metadata = {
   title: "About Us — SWAWEBHUB",
@@ -11,6 +12,7 @@ export const metadata = {
     "Meet SWAWEBHUB — a senior, design-led studio helping ambitious brands win on the web with web design, development, and SEO.",
   alternates: { canonical: "https://www.swawebhub.com/about" },
   robots: { index: true, follow: true },
+  other: { focus_keyphrase: autoFocusKeyphrase("About Us — SWAWEBHUB") },
 };
 
 const values = [

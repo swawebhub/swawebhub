@@ -11,6 +11,7 @@ import { FAQ } from "@/components/home/FAQ";
 import { DarkBand } from "@/components/home/DarkBand";
 import { CTA } from "@/components/ui/CTA";
 import { SITE_URL } from "@/lib/site";
+import { autoFocusKeyphrase } from "@/lib/wordpress";
 
 export const metadata: Metadata = {
   title: "SWAWEBHUB — Web Design, Development & SEO",
@@ -26,6 +27,7 @@ export const metadata: Metadata = {
     type: "website",
   },
   robots: { index: true, follow: true },
+  other: { focus_keyphrase: autoFocusKeyphrase("SWAWEBHUB — Web Design, Development & SEO") },
 };
 
 export const dynamic = 'force-static';

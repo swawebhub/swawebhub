@@ -2,7 +2,10 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { PageHeader } from "@/components/ui/PageHeader";
 import { CTA } from "@/components/ui/CTA";
-import { fetchPostBySlug, fetchComments } from "@/lib/wordpress";
+import { fetchPostBySlug, fetchComments, categoryEmoji, readingTime } from "@/lib/wordpress";
+import { ShareButtons } from "@/components/blog/ShareButtons";
+import { CommentForm } from "@/components/blog/CommentForm";
+import { CommentItem } from "@/components/blog/CommentItem";
 
 export const dynamic = "force-dynamic";
 
@@ -16,8 +19,9 @@ export async function generateMetadata({ params }: { params: { slug: string } })
     };
   }
 
-  const title = post.yoastTitle || `${post.title} — SWAWEBHUB`;
-  const description = post.metaDescription || post.excerpt;
+  const title = post.seoMetaTitle || post.yoastTitle || post.title;
+  const description = post.seoMetaDescription || post.metaDescription || post.excerpt;
+  const focusKeyphrase = post.seoFocusKeyphrase || post.focusKeyword || "";
 
   return {
     title,
@@ -47,6 +51,9 @@ export default async function BlogDetailPage({ params }: { params: { slug: strin
   if (!post) notFound();
 
   const comments = await fetchComments(post.id);
+  const minutes = readingTime(post.content);
+  const category = post.categories[0];
+  const catEmoji = category ? categoryEmoji(category) : "📝";
 
   return (
     <>
@@ -62,77 +69,80 @@ export default async function BlogDetailPage({ params }: { params: { slug: strin
 
       <div className="bg-white">
         <div className="container-x max-w-3xl py-16">
+          <div className="mb-6 flex flex-wrap items-center gap-3 text-xs text-ink/50">
+            {category && (
+              <span className="inline-flex items-center gap-1.5 rounded-full bg-master-50 px-3 py-1.5 font-semibold text-darkgreen">
+                <span>{catEmoji}</span>
+                <span>{category}</span>
+              </span>
+            )}
+            <span className="inline-flex items-center gap-1 rounded-full bg-ink/5 px-3 py-1.5">
+              ✍️ {post.author}
+            </span>
+            <span className="inline-flex items-center gap-1 rounded-full bg-ink/5 px-3 py-1.5">
+              📅 {new Date(post.date).toLocaleDateString("en-US", { dateStyle: "long" })}
+            </span>
+            <span className="inline-flex items-center gap-1 rounded-full bg-ink/5 px-3 py-1.5">
+              ⏱️ {minutes} min read
+            </span>
+          </div>
+
           {post.image && (
             <img
               src={`/api/proxy-image?url=${encodeURIComponent(post.image)}`}
               alt={post.title}
               className="mb-8 w-full rounded-3xl object-cover"
+              loading="eager"
             />
           )}
-          <div className="mb-6 flex flex-wrap items-center gap-2 text-xs text-ink/50">
-            {post.categories.length > 0 && (
-              <span className="rounded-full bg-master-50 px-2.5 py-1 font-medium text-darkgreen">
-                {post.categories[0]}
-              </span>
-            )}
-            <span>By {post.author}</span>
-            <span>·</span>
-            <span>{new Date(post.date).toLocaleDateString()}</span>
-            {post.tags.length > 0 && (
-              <span className="text-master">#{post.tags.join(" #")}</span>
-            )}
-          </div>
-          <div className="mb-6 rounded-2xl border border-ink/5 p-4 text-xs text-ink/60">
-            {post.metaDescription && (
-              <p>
-                <strong className="text-ink">Meta Description:</strong> {post.metaDescription}
-              </p>
-            )}
-            {post.focusKeyword && (
-              <p className="mt-1">
-                <strong className="text-ink">Focus Keyphrase:</strong> {post.focusKeyword}
-              </p>
-            )}
-            {post.yoastTitle && (
-              <p className="mt-1">
-                <strong className="text-ink">SEO Title:</strong> {post.yoastTitle}
-              </p>
-            )}
-            {post.metaTags && Object.keys(post.metaTags).length > 0 && (
-              <p className="mt-1">
-                <strong className="text-ink">Meta Tags:</strong> {JSON.stringify(post.metaTags)}
-              </p>
-            )}
-          </div>
+
+          {post.tags.length > 0 && (
+            <div className="mb-6 flex flex-wrap gap-2">
+              {post.tags.map((tag) => (
+                <span
+                  key={tag}
+                  className="rounded-full border border-ink/10 bg-master-50/60 px-3 py-1 text-xs font-semibold text-darkgreen transition-all duration-200 hover:border-master hover:shadow-sm"
+                >
+                  #{tag}
+                </span>
+              ))}
+              {post.seoFocusKeyphrase && (
+                <span className="rounded-full border border-master/40 bg-master px-3 py-1 text-xs font-bold text-darkgreen">
+                  🎯 {post.seoFocusKeyphrase}
+                </span>
+              )}
+            </div>
+          )}
+
           <div
-            className="mt-8 space-y-4 leading-relaxed text-ink/70"
+            className="blog-content"
             dangerouslySetInnerHTML={{ __html: post.content }}
           />
+
+          <ShareButtons title={post.title} slug={post.slug} />
         </div>
       </div>
 
-      {comments.length > 0 && (
-        <section className="section bg-white">
-          <div className="container-x max-w-3xl">
-            <h3 className="mb-6 font-display text-xl font-bold">Comments</h3>
-            <div className="space-y-4">
+      <section className="section bg-white">
+        <div className="container-x max-w-3xl">
+          <h3 className="mb-2 flex items-center gap-2 font-display text-2xl font-bold">
+            <span>💬</span> Comments {comments.length > 0 && `(${comments.length})`}
+          </h3>
+          <p className="mb-8 text-sm text-ink/60">
+            Have thoughts? Drop a comment below and join the conversation.
+          </p>
+
+          <CommentForm postId={post.id} />
+
+          {comments.length > 0 && (
+            <div className="mt-10 space-y-4">
               {comments.map((c) => (
-                <div key={c.id} className="rounded-2xl border border-ink/5 p-4">
-                  <div className="flex items-center gap-2 text-xs text-ink/50">
-                    <span className="font-semibold text-ink">{c.author}</span>
-                    <span>·</span>
-                    <span>{new Date(c.date).toLocaleString()}</span>
-                  </div>
-                  <div
-                    className="mt-2 text-sm text-ink/70"
-                    dangerouslySetInnerHTML={{ __html: c.content }}
-                  />
-                </div>
+                <CommentItem key={c.id} comment={c} />
               ))}
             </div>
-          </div>
-        </section>
-      )}
+          )}
+        </div>
+      </section>
 
       <CTA
         title="Enjoyed this read?"

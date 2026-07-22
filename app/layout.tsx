@@ -27,6 +27,9 @@ export const metadata: Metadata = {
   },
   description:
     "SWAWEBHUB builds modern, high-converting websites with web design, development, and SEO. Start your project today.",
+  icons: {
+    icon: "/images/favicon.webp",
+  },
   alternates: {
     canonical: "/",
   },

@@ -20,6 +20,9 @@ export type WordPressPost = {
   focusKeyword?: string;
   yoastTitle?: string;
   metaTags?: Record<string, string>;
+  seoMetaTitle?: string;
+  seoMetaDescription?: string;
+  seoFocusKeyphrase?: string;
 };
 
 export type WordPressCategory = {
@@ -133,6 +136,10 @@ export function normalizePost(raw: any): WordPressPost {
     }
   }
 
+  const seoMetaTitle = raw.seo?.meta_title;
+  const seoMetaDescription = raw.seo?.meta_description;
+  const seoFocusKeyphrase = raw.seo?.focus_keyphrase;
+
   return {
     id: Number(raw.id),
     slug: String(raw.slug),
@@ -155,6 +162,9 @@ export function normalizePost(raw: any): WordPressPost {
     focusKeyword: raw.yoast_wpseo_focuskw,
     yoastTitle: raw.yoast_title || raw.yoast_wpseo_title,
     metaTags,
+    seoMetaTitle,
+    seoMetaDescription,
+    seoFocusKeyphrase,
   };
 }
 
@@ -282,3 +292,56 @@ export async function fetchImageBytes(url: string): Promise<Uint8Array | null> {
 
   return body;
 }
+
+export function readingTime(html: string): number {
+  const text = stripHtml(html);
+  const words = text.split(/\s+/).filter(Boolean).length;
+  return Math.max(1, Math.round(words / 220));
+}
+
+const CATEGORY_EMOJI: Record<string, string> = {
+  "web design": "🎨",
+  "web development": "💻",
+  "seo": "🚀",
+  "digital marketing": "📈",
+  "blog": "📝",
+  "news": "📰",
+  "tutorial": "📚",
+};
+
+export function categoryEmoji(name = ""): string {
+  const key = name.toLowerCase().trim();
+  return CATEGORY_EMOJI[key] || "📌";
+}
+
+export function autoFocusKeyphrase(title = ""): string {
+  const text = stripHtml(title);
+  const words = text
+    .replace(/[^a-zA-Z0-9\s-]/g, "")
+    .split(/\s+/)
+    .filter(Boolean);
+  const stopWords = new Set([
+    "a", "an", "the", "and", "or", "but", "in", "on", "at", "to", "for",
+    "with", "by", "from", "is", "it", "this", "that", "of", "as", "are",
+    "was", "were", "be", "been", "have", "has", "had", "do", "does", "did",
+    "will", "would", "shall", "should", "can", "could", "may", "might",
+    "must", "here", "there", "your", "our", "their", "my", "his", "her",
+    "its", "how", "what", "why", "who", "when", "where", "which", "than",
+    "then", "into", "over", "under", "about", "between", "through", "during",
+    "before", "after", "above", "below", "up", "down", "out", "off", "again",
+    "further", "once", "more", "most", "some", "any", "no", "not", "only",
+    "same", "such", "too", "very", "just", "because", "also", "while",
+    "since", "until", "although", "though", "even", "much", "many", "each",
+    "every", "both", "few", "more", "less", "least", "own", "other",
+    "another", "many", "much", "every", "any", "some", "such", "no", "nor",
+    "not", "only", "own", "same", "so", "than", "too", "very", "s", "t",
+    "will", "just", "don", "should", "now", "d", "ll", "m", "o", "re",
+    "ve", "y", "ain", "aren", "couldn", "didn", "doesn", "hadn", "hasn",
+    "haven", "isn", "ma", "mightn", "mustn", "needn", "shan", "shouldn",
+    "wasn", "weren", "won", "wouldn"
+  ]);
+  const keywords = words.filter((w) => !stopWords.has(w.toLowerCase()) && w.length > 2);
+  const unique = Array.from(new Set(keywords)).slice(0, 8);
+  return unique.join(" ");
+}
+

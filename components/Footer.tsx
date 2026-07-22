@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import { footerPages, services } from "@/lib/site";
 
 export function Footer() {
@@ -24,13 +25,14 @@ export function Footer() {
         <div className="grid gap-12 md:grid-cols-2 lg:grid-cols-5">
           {/* A) Logo + content + social */}
           <div className="lg:col-span-1">
-            <Link href="/" className="flex items-center gap-3">
-              <span className="grid h-10 w-10 place-items-center rounded-xl bg-master text-ink">
-                <span className="text-lg font-black">S</span>
-              </span>
-              <span className="font-display text-xl font-extrabold tracking-tight">
-                SWA<span className="text-master">WEBHUB</span>
-              </span>
+            <Link href="/" className="flex items-center">
+              <Image
+                src="/images/swa-web-hub-logo-y-w.webp"
+                alt="SWAWEBHUB"
+                width={150}
+                height={40}
+                className="h-auto w-[120px] sm:w-[150px]"
+              />
             </Link>
             <p className="mt-5 text-sm leading-relaxed text-white/60">
               Premium digital solutions combining Web Design, Shopify, WordPress, Next.js, and SEO to build faster, smarter, and more successful businesses.

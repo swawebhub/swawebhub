@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { useState, useEffect } from "react";
+import Image from "next/image";
 import { navItems, contactEmail, contactPhone } from "@/lib/site";
 import { StartProjectButton } from "@/components/ui/StartProjectButton";
 
@@ -61,13 +62,15 @@ export function Header() {
         }`}
       >
         <div className="flex h-16 w-full items-center justify-between gap-4 px-4 sm:px-6 lg:px-8 lg:h-20 xl:max-w-[1440px] xl:mx-auto">
-          <Link href="/" className="flex items-center gap-2" onClick={() => setDrawer(false)}>
-            <span className="grid h-9 w-9 place-items-center rounded-xl bg-ink text-master">
-              <span className="text-lg font-black">S</span>
-            </span>
-            <span className="font-display text-xl font-extrabold tracking-tight text-ink">
-              SWA<span className="text-darkgreen">WEBHUB</span>
-            </span>
+          <Link href="/" className="flex items-center" onClick={() => setDrawer(false)}>
+            <Image
+              src="/images/swa-web-hub-logo-b-g.webp"
+              alt="SWAWEBHUB"
+              width={150}
+              height={40}
+              priority
+              className="h-auto w-[120px] sm:w-[150px]"
+            />
           </Link>
 
           <nav className="hidden items-center gap-1 lg:flex">
@@ -108,15 +111,15 @@ export function Header() {
                 <StartProjectButton variant={scrolled ? "black" : "outline"} className="text-nowrap text-xs sm:text-sm px-3 sm:px-5 py-1.5 sm:py-2.5" />
               </div>
 
-           <button
-             type="button"
-             aria-label="Open menu"
-             className="grid h-11 w-11 place-items-center rounded-xl bg-ink text-master lg:hidden"
-             onClick={() => setDrawer(true)}
-           >
-             <span className="text-xl">☰</span>
-           </button>
-         </div>
+            <button
+              type="button"
+              aria-label="Open menu"
+              className="grid h-11 w-11 place-items-center rounded-xl bg-ink text-master lg:hidden"
+              onClick={() => setDrawer(true)}
+            >
+              <span className="text-xl">☰</span>
+            </button>
+          </div>
         </div>
       </header>
 
@@ -139,17 +142,19 @@ export function Header() {
           }`}
         >
           {/* Single drawer header */}
-          <div className="flex items-center justify-between border-b border-ink/5 px-5 py-4">
-            <Link href="/" className="flex items-center gap-2" onClick={() => {
+          <div className="flex items-center justify-between border-b border-ink/5 bg-master px-5 py-4">
+            <Link href="/" className="flex items-center" onClick={() => {
               setDrawer(false);
               setSubOpen(null);
             }}>
-              <span className="grid h-9 w-9 place-items-center rounded-xl bg-ink text-master">
-                <span className="text-lg font-black">S</span>
-              </span>
-              <span className="font-display text-lg font-extrabold">
-                SWA<span className="text-darkgreen">WEBHUB</span>
-              </span>
+              <Image
+                src="/images/swa-web-hub-logo-b-g.webp"
+                alt="SWAWEBHUB"
+                width={120}
+                height={32}
+                priority
+                className="h-auto w-[100px]"
+              />
             </Link>
             <button
               type="button"
